@@ -132,9 +132,14 @@ limit_enabled = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i25n2")
 animation = &"idle"
+
 frame_progress = 0.8437156
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.9999998)
 scale = Vector2(0.5566971, 0.60380733)
+
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+5b15dc4b1eb0df4ba3c5611a80a28f2476c4866d
 shape = SubResource("CapsuleShape2D_kw2yy")
