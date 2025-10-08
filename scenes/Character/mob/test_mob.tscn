@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://dg2e8ue2sx0av"]
+
+[ext_resource type="Script" uid="uid://ceihf43h0qbw" path="res://scripts/mob/test_mob.gd" id="1_gtkm8"]
+[ext_resource type="Texture2D" uid="uid://bixm65b5tbbtq" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7.png" id="2_vtp8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnke5"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(368, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnnts"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(384, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv1n6"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(400, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6ikm"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(416, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1sio"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(432, 154, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwb6g"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(448, 154, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcwwo"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(464, 154, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf2j3"]
+atlas = ExtResource("2_vtp8u")
+region = Rect2(480, 154, 16, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pigch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnke5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnnts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv1n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6ikm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1sio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwb6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcwwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf2j3")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5w4cc"]
+
+[node name="test_mob" type="CharacterBody2D"]
+script = ExtResource("1_gtkm8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -2)
+sprite_frames = SubResource("SpriteFrames_pigch")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5657288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.721623, 0.721623)
+shape = SubResource("CircleShape2D_5w4cc")
