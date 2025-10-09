@@ -121,7 +121,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kw2yy"]
 
-[node name="player_test" type="CharacterBody2D"]
+[node name="player_test" type="CharacterBody2D" groups=["player"]]
 position = Vector2(547, 325)
 script = ExtResource("1_kw2yy")
 
@@ -133,13 +133,8 @@ limit_enabled = false
 sprite_frames = SubResource("SpriteFrames_i25n2")
 animation = &"idle"
 
-frame_progress = 0.8437156
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 1023
 position = Vector2(0, 2.9999998)
 scale = Vector2(0.5566971, 0.60380733)
-
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-5b15dc4b1eb0df4ba3c5611a80a28f2476c4866d
 shape = SubResource("CapsuleShape2D_kw2yy")
