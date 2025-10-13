@@ -125,12 +125,13 @@ script = ExtResource("1_kw2yy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
-limit_left = 0
-limit_top = 0
-limit_right = 1150
-limit_bottom = 650
+limit_left = 5
+limit_top = -5
+limit_right = 1155
+limit_bottom = 645
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.75000477, -34)
+scale = Vector2(2.0312505, 1.8333334)
 sprite_frames = SubResource("SpriteFrames_i25n2")
-animation = &"idle"
-frame_progress = 0.8437156
+animation = &"run"
