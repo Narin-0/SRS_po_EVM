@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg2e8ue2sx0av"]
+[gd_scene load_steps=12 format=3 uid="uid://dg2e8ue2sx0av"]
 
 [ext_resource type="Script" uid="uid://ceihf43h0qbw" path="res://scripts/mob/test_mob.gd" id="1_gtkm8"]
 [ext_resource type="Texture2D" uid="uid://bixm65b5tbbtq" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7.png" id="2_vtp8u"]
@@ -72,9 +72,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5w4cc"]
-
 [node name="test_mob" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_gtkm8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -82,8 +81,8 @@ position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_pigch")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.5657288
+frame_progress = 0.11834244
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 scale = Vector2(0.721623, 0.721623)
-shape = SubResource("CircleShape2D_5w4cc")

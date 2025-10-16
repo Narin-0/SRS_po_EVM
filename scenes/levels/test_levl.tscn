@@ -101,6 +101,5 @@ position = Vector2(566, 346)
 [node name="Labyrinth" type="Sprite2D" parent="."]
 scale = Vector2(9.899108, 9.899108)
 texture = ExtResource("3_m2oa5")
-metadata/_edit_lock_ = true
 
 [node name="test_mob" parent="." instance=ExtResource("4_tuohi")]
