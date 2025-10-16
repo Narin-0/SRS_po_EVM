@@ -40,3 +40,7 @@ func _input(event):
 			target_offset,
 			SENSITIVITY
 		)
+
+
+func _on_soundbutton_toggled(toggled_on: bool) -> void:
+	pass # Replace with function body.
