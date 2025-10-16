@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvkd886e6alt"]
+[gd_scene load_steps=8 format=3 uid="uid://cvkd886e6alt"]
 
 [ext_resource type="PackedScene" uid="uid://b7hk8p36clx5p" path="res://scenes/Character/player/player_test.tscn" id="1_mk23o"]
 [ext_resource type="Texture2D" uid="uid://bcu6kji6yt8in" path="res://assets/tilesets/plains.png" id="1_negfb"]
 [ext_resource type="Texture2D" uid="uid://dwv08wbsvwm7n" path="res://assets/labyrinth.png" id="3_m2oa5"]
+[ext_resource type="PackedScene" uid="uid://dg2e8ue2sx0av" path="res://scenes/Character/mob/test_mob.tscn" id="4_tuohi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_negfb"]
 texture = ExtResource("1_negfb")
@@ -101,3 +102,5 @@ position = Vector2(566, 346)
 scale = Vector2(9.899108, 9.899108)
 texture = ExtResource("3_m2oa5")
 metadata/_edit_lock_ = true
+
+[node name="test_mob" parent="." instance=ExtResource("4_tuohi")]
