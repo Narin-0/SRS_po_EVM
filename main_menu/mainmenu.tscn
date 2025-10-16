@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://cybh1sy0vfrnt"]
+
+[ext_resource type="Texture2D" uid="uid://b1goinnhfsdf3" path="res://main_menu/Дизайн без названия (8).png" id="1_fs5a5"]
+[ext_resource type="Script" uid="uid://bpk78xsh18isc" path="res://main_menu/mainmenu.gd" id="1_itpeu"]
+[ext_resource type="AudioStream" uid="uid://qwxn5sefvk7x" path="res://main_menu/OMNIMAN _ TOM TOM SLOWED EDIT (mp3cut.net).mp3" id="2_fs5a5"]
+[ext_resource type="FontFile" uid="uid://dl65ja08a4obg" path="res://fonts/fonts1/architect-s-daughter/ArchitectsDaughter.ttf" id="3_fs5a5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qfadr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfadr"]
+bg_color = Color(0.36078432, 0.17254902, 0.023529412, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8352941, 0.63529414, 0.3254902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itpeu"]
+bg_color = Color(0.47843137, 0.24705882, 0.05882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.8, 0.4, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rhom"]
+bg_color = Color(0.23137255, 0.105882354, 0.019607844, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.84313726, 0.60784316, 0.2509804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvgje"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qfadr"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.151
+spread = 180.0
+flatness = 0.145
+initial_velocity_max = 310.35
+gravity = Vector3(0, 98, 0)
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_itpeu")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_fs5a5")
+volume_db = -8.914
+autoplay = true
+max_polyphony = 2
+area_mask = 255
+parameters/looping = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3000, 1920)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_left = -19.0
+offset_top = -24.0
+offset_right = 1340.0
+offset_bottom = 673.0
+texture = ExtResource("1_fs5a5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+material = SubResource("CanvasItemMaterial_qfadr")
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_right = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+layout_direction = 4
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fs5a5")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kvgje")
+text = "Start"
+
+[node name="Button5" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fs5a5")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kvgje")
+text = "RuleBook"
+
+[node name="Button6" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fs5a5")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kvgje")
+text = "LoadButton"
+
+[node name="Button7" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fs5a5")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kvgje")
+text = "Exit
+"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(677, 133)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_qfadr")

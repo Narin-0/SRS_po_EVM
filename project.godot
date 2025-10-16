@@ -11,13 +11,26 @@ config_version=5
 [application]
 
 config/name="SRS_po_EVM"
-run/main_scene="uid://b7hk8p36clx5p"
+run/main_scene="uid://cybh1sy0vfrnt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=2
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
 project/assembly_name="SRS_po_EVM"
+
+[file_customization]
+
+folder_colors={
+"res://main_menu/": "red"
+}
 
 [input]
 
