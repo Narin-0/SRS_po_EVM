@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cybh1sy0vfrnt"]
+[gd_scene load_steps=15 format=3 uid="uid://cybh1sy0vfrnt"]
 
 [ext_resource type="Texture2D" uid="uid://b1goinnhfsdf3" path="res://main_menu/Дизайн без названия (8).png" id="1_fs5a5"]
 [ext_resource type="Script" uid="uid://bpk78xsh18isc" path="res://main_menu/mainmenu.gd" id="1_itpeu"]
 [ext_resource type="AudioStream" uid="uid://qwxn5sefvk7x" path="res://main_menu/OMNIMAN _ TOM TOM SLOWED EDIT (mp3cut.net).mp3" id="2_fs5a5"]
 [ext_resource type="FontFile" uid="uid://dl65ja08a4obg" path="res://fonts/fonts1/architect-s-daughter/ArchitectsDaughter.ttf" id="3_fs5a5"]
+[ext_resource type="Script" uid="uid://d4ggyfp7rppyk" path="res://main_menu/soundbutton.gd" id="5_itpeu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qfadr"]
 
@@ -55,6 +56,38 @@ spread = 180.0
 flatness = 0.145
 initial_velocity_max = 310.35
 gravity = Vector3(0, 98, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lhfd"]
+bg_color = Color(0.60038817, 0.66743076, 0.83116233, 0.96700007)
+draw_center = false
+border_width_left = 10
+border_width_top = 6
+border_width_right = 9
+border_width_bottom = 8
+border_color = Color(5.1323633, 5.1323633, 5.1323633, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48cn3"]
+bg_color = Color(0.7541437, 0.54588866, 0.44297108, 0.68)
+border_width_left = 11
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 11
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg1e4"]
+bg_color = Color(0.8277864, 0.5189479, 0.1897483, 0.49100003)
+border_width_left = 11
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 11
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
 
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
@@ -153,3 +186,18 @@ text = "Exit
 position = Vector2(677, 133)
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_qfadr")
+
+[node name="Soundbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 25.0
+offset_right = 1130.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lhfd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48cn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kg1e4")
+script = ExtResource("5_itpeu")
+
+[connection signal="pressed" from="Soundbutton" to="Soundbutton" method="_on_pressed"]
+[connection signal="toggled" from="Soundbutton" to="Soundbutton" method="_on_soundbutton_toggled"]
