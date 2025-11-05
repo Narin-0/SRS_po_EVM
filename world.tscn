@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkona5kpgalif"]
+
+[sub_resource type="TileSet" id="TileSet_gv5m4"]
+
+[node name="World" type="Node2D"]
+
+[node name="LevelTileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_gv5m4")
+format = 2

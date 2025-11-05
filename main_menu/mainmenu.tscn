@@ -169,7 +169,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_kvgje")
-text = "LoadButton"
+text = "Character"
 
 [node name="Button7" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
