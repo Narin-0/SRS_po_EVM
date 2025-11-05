@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bnhwin5llgspr"]
+
+[node name="Panel" type="Panel"]
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 0.99999994
+offset_right = 17.0
+offset_bottom = 17.0
+scale = Vector2(0.87789613, 0.849727)
