@@ -92,7 +92,7 @@ func _check_auto_regen(delta: float) -> void:
 
 func _apply_regen_glow(delta: float) -> void:
 	# Пульсирующее зелёное свечение
-	var glow_strength = regen_glow_intensity * (0.5 + 0.5 * sin(Engine.get_time_msecs() / 200.0))
+	var glow_strength = regen_glow_intensity * (0.5 + 0.5 * sin(Time.get_ticks_msec() / 300.0))
 	anim_sprite.modulate = Color(1 - glow_strength, 1, 1 - glow_strength, 1)
 
 
