@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7dvmp7mufkt0"
-path="res://.godot/imported/sprite.png-6b2f9042b243bc5c455314623fb31a81.ctex"
+uid="uid://cv0b1yxnv5ulp"
+path="res://.godot/imported/enemies-skeleton1_death.png-57e9ec289a0e0f20a69a319e83549d1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/sprite.png"
-dest_files=["res://.godot/imported/sprite.png-6b2f9042b243bc5c455314623fb31a81.ctex"]
+source_file="res://assets/Enemy_Animations_Set/enemies-skeleton1_death.png"
+dest_files=["res://.godot/imported/enemies-skeleton1_death.png-57e9ec289a0e0f20a69a319e83549d1a.ctex"]
 
 [params]
 

@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://cngh53t0oamu3"]
+
+[ext_resource type="Texture2D" uid="uid://c75sqxqmjqoaa" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f3.png" id="1_2orpg"]
+[ext_resource type="Script" uid="uid://2vrhdv88w54r" path="res://Narin_0/scripts/enemy.gd" id="1_icj16"]
+[ext_resource type="Texture2D" uid="uid://bwtjmeokhiu4v" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f2.png" id="2_icj16"]
+[ext_resource type="Texture2D" uid="uid://cdik1fefu5tgf" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f1.png" id="3_7n1ui"]
+[ext_resource type="Texture2D" uid="uid://d04wo84el2rei" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f0.png" id="4_kjskq"]
+[ext_resource type="Texture2D" uid="uid://qskfqbt6ovn" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f1.png" id="5_0ojmp"]
+[ext_resource type="Texture2D" uid="uid://dnruqlbeh5pbx" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f2.png" id="6_qcjj7"]
+[ext_resource type="Texture2D" uid="uid://ctjh7t86r4ecw" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f3.png" id="7_ng0w1"]
+[ext_resource type="Texture2D" uid="uid://nfd7shrb15cp" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f0.png" id="8_yyn2e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8i5b4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2orpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_icj16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7n1ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kjskq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0ojmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qcjj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ng0w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yyn2e")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scmc8"]
+size = Vector2(21.548172, 20.012224)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_icj16")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8i5b4")
+animation = &"walking"
+frame_progress = 0.02327749
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="TouchBox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3.9914534)
+scale = Vector2(0.9281531, 1.3982908)
+shape = SubResource("RectangleShape2D_scmc8")

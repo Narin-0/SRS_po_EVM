@@ -1,67 +1,65 @@
-[gd_scene load_steps=24 format=3 uid="uid://8x014y6dd2to"]
+[gd_scene load_steps=22 format=3 uid="uid://8x014y6dd2to"]
 
-[ext_resource type="Script" uid="uid://bqrwb4ya07e5f" path="res://scripts/player/player.gd" id="1_pe1ex"]
-[ext_resource type="Texture2D" uid="uid://7dvmp7mufkt0" path="res://assets/sprites/sprite.png" id="2_gvpfs"]
-[ext_resource type="Texture2D" uid="uid://ds3x4l6cp0eoj" path="res://assets/sprites/Sprite-0003.png" id="3_o5u7n"]
-[ext_resource type="Texture2D" uid="uid://b2x8kh4xle580" path="res://assets/sprites/Sprite-0001.png" id="4_5vkq7"]
-[ext_resource type="Texture2D" uid="uid://dhvu5a4bqxj7k" path="res://assets/sprites/Sprite-0002.png" id="5_hkjnt"]
-[ext_resource type="Script" uid="uid://c71hq8qj0hgbw" path="res://scripts/player/inventory.gd" id="5_o5u7n"]
-[ext_resource type="PackedScene" uid="uid://bnhwin5llgspr" path="res://scenes/Character/player/panel.tscn" id="7_5vkq7"]
+[ext_resource type="Texture2D" uid="uid://7dvmp7mufkt0" path="res://Narin_0/assets/sprites/player/sprite.png" id="1_fc1cn"]
+[ext_resource type="Script" uid="uid://bqrwb4ya07e5f" path="res://Narin_0/scripts/player.gd" id="1_pdfg5"]
+[ext_resource type="Texture2D" uid="uid://ds3x4l6cp0eoj" path="res://assets/sprites/Sprite-0003.png" id="4_ofbtv"]
+[ext_resource type="Texture2D" uid="uid://b2x8kh4xle580" path="res://assets/sprites/Sprite-0001.png" id="5_4kv1o"]
+[ext_resource type="Texture2D" uid="uid://dhvu5a4bqxj7k" path="res://assets/sprites/Sprite-0002.png" id="6_xu5s8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5u7n"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(0, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vkq7"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(16, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkjnt"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(32, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay7cm"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(48, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m11ae"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(0, 192, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjhx1"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(16, 192, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yt58s"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(32, 192, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_phv7q"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(48, 192, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hg0f"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(64, 192, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4n28"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(80, 192, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mwfh"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(0, 24, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iodte"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(16, 24, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uoea2"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(32, 24, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqylm"]
-atlas = ExtResource("2_gvpfs")
+atlas = ExtResource("1_fc1cn")
 region = Rect2(48, 24, 16, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hs03v"]
@@ -126,15 +124,8 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3fbgt"]
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_pe1ex")
-walk_speed = null
-run_speed = null
-max_health = null
-invincibility_time = null
-regen_delay = null
-regen_speed = null
-regen_target = null
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_pdfg5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
@@ -152,30 +143,6 @@ position_smoothing_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="UI"]
-offset_left = 15.0
-offset_top = 583.0
-offset_right = 91.0
-offset_bottom = 659.0
-scale = Vector2(3, 3)
-columns = 4
-
-[node name="Panel" parent="UI/GridContainer" instance=ExtResource("7_5vkq7")]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-
-[node name="Panel2" parent="UI/GridContainer" instance=ExtResource("7_5vkq7")]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-
-[node name="Panel3" parent="UI/GridContainer" instance=ExtResource("7_5vkq7")]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-
-[node name="Panel4" parent="UI/GridContainer" instance=ExtResource("7_5vkq7")]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-
 [node name="HPBar" type="TextureProgressBar" parent="UI"]
 modulate = Color(0.9193253, 0, 0.011586997, 1)
 custom_minimum_size = Vector2(0, 200)
@@ -189,14 +156,6 @@ offset_bottom = 193.576
 scale = Vector2(0.23688114, 0.21734643)
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_o5u7n")
-texture_over = ExtResource("4_5vkq7")
-texture_progress = ExtResource("5_hkjnt")
-
-[node name="InventoryHolder" type="Node2D" parent="."]
-
-[node name="ItemSprite" type="Sprite2D" parent="InventoryHolder"]
-offset = Vector2(10, 0)
-
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("5_o5u7n")
+texture_under = ExtResource("4_ofbtv")
+texture_over = ExtResource("5_4kv1o")
+texture_progress = ExtResource("6_xu5s8")

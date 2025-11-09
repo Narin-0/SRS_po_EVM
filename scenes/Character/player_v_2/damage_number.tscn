@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://jljh2g8gyfhn"]
+
+[ext_resource type="Script" uid="uid://d01t01whudx2p" path="res://scenes/Character/player_v_2/damage_number.gd" id="1_vpi53"]
+
+[node name="DamageNumber" type="Node2D"]
+script = ExtResource("1_vpi53")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

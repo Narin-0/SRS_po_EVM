@@ -1,27 +1,38 @@
 extends CharacterBody2D
 
+signal health_changed(new_health)
+signal died
+signal regen_started
+signal regen_stopped
+
 @export var walk_speed: float = 100.0
 @export var run_speed: float = 200.0
 @export var max_health: int = 100
 @export var invincibility_time: float = 1.5
-@export var regen_delay: float = 15.0           # время простоя перед началом регенерации (в секундах)
-@export var regen_speed: float = 80.0           # сколько HP в секунду восстанавливается
-@export var regen_target: float = 0.7           # до какого процента максимум регенить (0.7 = 70%)
-@export var regen_glow_intensity: float = 0.5   # интенсивность зелёного свечения
+@export var regen_delay: float = 15.0
+@export var regen_speed: float = 80.0
+@export var regen_target: float = 0.7
+@export var regen_glow_intensity: float = 0.5
 
-var health: float = max_health                  # теперь float для плавного восстановления
+var health: float = 0.0
 var anim_sprite: AnimatedSprite2D
 var hp_bar: TextureProgressBar
 var is_invincible: bool = false
-var idle_time: float = 0.0                      # время без движения
-var is_regening: bool = false                   # флаг регена
-
+var idle_time: float = 0.0
+var is_regening: bool = false
+var _original_modulate: Color
 
 func _ready() -> void:
 	anim_sprite = $AnimatedSprite2D
 	hp_bar = $UI/HPBar
-	$Inventory.add_item(load("res://items/flask_big_blue.png"))
-	$Inventory.add_item(load("res://items/flask_big_green.png"))
+
+	_original_modulate = modulate
+
+	# Добавляем в группу, чтобы проще находили игрока из других скриптов
+	add_to_group("player")
+
+	# Инициализируем здоровье
+	health = clamp(float(max_health), 0.0, float(max_health))
 
 	if hp_bar:
 		hp_bar.max_value = max_health
@@ -54,7 +65,6 @@ func _physics_process(delta: float) -> void:
 	var speed = run_speed if is_running else walk_speed
 	velocity = input_vector * speed
 
-	# Проверяем, стоит ли игрок
 	if input_vector == Vector2.ZERO:
 		anim_sprite.play("idle")
 		idle_time += delta
@@ -70,40 +80,44 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Пассивная регенерация HP
 	_check_auto_regen(delta)
 
 
 func _check_auto_regen(delta: float) -> void:
 	var target_hp = max_health * regen_target
 	if health <= max_health * 0.5 and idle_time >= regen_delay and health < target_hp:
-		is_regening = true
+		if not is_regening:
+			is_regening = true
+			emit_signal("regen_started")
 		health += regen_speed * delta
 		if health > target_hp:
 			health = target_hp
-		hp_bar.value = int(health)
+		if hp_bar:
+			hp_bar.value = int(health)
+		emit_signal("health_changed", health)
 		_apply_regen_glow(delta)
 	else:
 		if is_regening:
-			# конец регена — возвращаем обычный цвет
-			anim_sprite.modulate = Color(1, 1, 1, 1)
-		is_regening = false
+			anim_sprite.modulate = _original_modulate
+			is_regening = false
+			emit_signal("regen_stopped")
 
 
-func _apply_regen_glow(delta: float) -> void:
-	# Пульсирующее зелёное свечение
+func _apply_regen_glow(_delta: float) -> void:
 	var glow_strength = regen_glow_intensity * (0.5 + 0.5 * sin(Time.get_ticks_msec() / 300.0))
 	anim_sprite.modulate = Color(1 - glow_strength, 1, 1 - glow_strength, 1)
 
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: float) -> void:
 	if is_invincible:
 		return
 
 	health -= amount
 	if health < 0:
 		health = 0
-	hp_bar.value = int(health)
+	if hp_bar:
+		hp_bar.value = int(health)
+	emit_signal("health_changed", health)
 
 	_flash_white()
 
@@ -111,8 +125,12 @@ func take_damage(amount: int) -> void:
 	await get_tree().create_timer(invincibility_time).timeout
 	_set_invincible(false)
 
+	if health <= 0:
+		emit_signal("died")
+
 
 func _flash_white():
+	var prev = anim_sprite.modulate
 	anim_sprite.modulate = Color(1, 1, 1, 1)
 	await get_tree().create_timer(0.15).timeout
 
@@ -122,24 +140,26 @@ func _flash_white():
 		anim_sprite.visible = true
 		await get_tree().create_timer(0.1).timeout
 
+	anim_sprite.modulate = prev
+
 
 func _set_invincible(state: bool) -> void:
 	is_invincible = state
 	if state:
-		modulate = Color(1, 1, 1, 0.6)
+		modulate = Color(_original_modulate.r, _original_modulate.g, _original_modulate.b, 0.6)
 	else:
-		modulate = Color(1, 1, 1, 1)
+		modulate = _original_modulate
 
 
-func heal(amount: int) -> void:
+func heal(amount: float) -> void:
 	health += amount
 	if health > max_health:
 		health = max_health
-	hp_bar.value = int(health)
+	if hp_bar:
+		hp_bar.value = int(health)
+	emit_signal("health_changed", health)
 
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		take_damage(10)
-	if Input.is_action_just_pressed("ui_cancel"):
-		heal(10)
+	# Убраны тестовые клавиши для урона/лечения — теперь урон даёт противник при соприкосновении хитбоксов
+	pass
