@@ -52,6 +52,12 @@ size = Vector2(21.548172, 20.012224)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_icj16")
+speed = null
+damage = null
+touch_cooldown = null
+sight_radius = null
+chase_speed_multiplier = null
+lose_sight_time = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8i5b4")

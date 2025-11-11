@@ -1,10 +1,27 @@
-[gd_scene load_steps=22 format=3 uid="uid://8x014y6dd2to"]
+[gd_scene load_steps=27 format=3 uid="uid://8x014y6dd2to"]
 
 [ext_resource type="Texture2D" uid="uid://7dvmp7mufkt0" path="res://Narin_0/assets/sprites/player/sprite.png" id="1_fc1cn"]
 [ext_resource type="Script" uid="uid://bqrwb4ya07e5f" path="res://Narin_0/scripts/player.gd" id="1_pdfg5"]
 [ext_resource type="Texture2D" uid="uid://ds3x4l6cp0eoj" path="res://assets/sprites/Sprite-0003.png" id="4_ofbtv"]
 [ext_resource type="Texture2D" uid="uid://b2x8kh4xle580" path="res://assets/sprites/Sprite-0001.png" id="5_4kv1o"]
+[ext_resource type="PackedScene" uid="uid://bq5jbhirtojnh" path="res://Narin_0/scenes/pistol.tscn" id="6_k2k3x"]
 [ext_resource type="Texture2D" uid="uid://dhvu5a4bqxj7k" path="res://assets/sprites/Sprite-0002.png" id="6_xu5s8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jalfv"]
+atlas = ExtResource("1_fc1cn")
+region = Rect2(0, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2k3x"]
+atlas = ExtResource("1_fc1cn")
+region = Rect2(16, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdfg5"]
+atlas = ExtResource("1_fc1cn")
+region = Rect2(32, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0oog"]
+atlas = ExtResource("1_fc1cn")
+region = Rect2(48, 72, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5u7n"]
 atlas = ExtResource("1_fc1cn")
@@ -64,6 +81,23 @@ region = Rect2(48, 24, 16, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hs03v"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jalfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2k3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdfg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0oog")
+}],
+"loop": false,
+"name": &"death",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o5u7n")
@@ -130,15 +164,24 @@ script = ExtResource("1_pdfg5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_hs03v")
-animation = &"run"
+animation = &"idle"
+
+[node name="Arm" type="Node2D" parent="."]
+position = Vector2(0, 3)
+rotation = -0.010661513
+scale = Vector2(0.3976796, 0.3976796)
+
+[node name="Pistol" parent="Arm" instance=ExtResource("6_k2k3x")]
+position = Vector2(-1.9073486e-06, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.99999994)
-scale = Vector2(0.67032343, 0.6465513)
+scale = Vector2(0.5684523, 0.5482929)
 shape = SubResource("CapsuleShape2D_3fbgt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+scale = Vector2(0.6838521, -10.223607)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -159,3 +202,49 @@ nine_patch_stretch = true
 texture_under = ExtResource("4_ofbtv")
 texture_over = ExtResource("5_4kv1o")
 texture_progress = ExtResource("6_xu5s8")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="UI"]
+offset_left = 22.000002
+offset_top = 39.0
+offset_right = 64.0
+offset_bottom = 79.0
+scale = Vector2(7.710314, 4.9475837)
+texture_under = ExtResource("4_ofbtv")
+texture_progress = ExtResource("6_xu5s8")
+
+[node name="DeathMenu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuitButton" type="Button" parent="UI/DeathMenu"]
+layout_mode = 0
+offset_left = 567.0
+offset_top = 382.0
+offset_right = 680.0
+offset_bottom = 413.0
+text = "Выйти"
+
+[node name="Label" type="Label" parent="UI/DeathMenu"]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 283.0
+offset_right = 677.0
+offset_bottom = 306.0
+text = "Вы погибли"
+
+[node name="RespawnButton" type="Button" parent="UI/DeathMenu"]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 330.0
+offset_right = 682.0
+offset_bottom = 361.0
+text = "Возродиться"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeathMenu"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 303.0
+offset_right = 509.0
+offset_bottom = 396.0
