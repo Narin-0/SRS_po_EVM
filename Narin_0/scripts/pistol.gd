@@ -50,11 +50,14 @@ func _find_muzzle_recursive(n: Node) -> Node2D:
 
 
 func _process(_delta: float) -> void:
-	# поворачиваем оружие в сторону курсора
+	# пистолет вращается вместе с родителем (Arm)
+	# поворот вычисляется в Arm, здесь просто следим за курсором или используем rotation от parent
 	var mouse_pos = get_global_mouse_position()
-	var dir = mouse_pos - global_position
+	var parent_pos = get_parent().global_position if get_parent() else global_position
+	var dir = mouse_pos - parent_pos
 	if dir.length() > 0.001:
-		rotation = dir.angle()
+		# вращаем родителя (Arm), пистолет автоматически повернётся
+		get_parent().rotation = dir.angle()
 
 	# стрельба при удержании кнопки
 	if Input.is_action_pressed("shoot"):
