@@ -153,8 +153,10 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aogla"]
+radius = 3.999506
+height = 11.998521
 
-[node name="Player_v1" type="CharacterBody2D"]
+[node name="Player_v1" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_q73mi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -163,8 +165,8 @@ animation = &"idle"
 frame_progress = 0.54581374
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-scale = Vector2(0.63045037, 0.5634874)
+position = Vector2(-1.4901218e-08, 10)
+rotation = 1.5865043
 shape = SubResource("CapsuleShape2D_aogla")
 
 [node name="Camera2D" type="Camera2D" parent="."]
