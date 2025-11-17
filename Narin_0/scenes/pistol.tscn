@@ -9,7 +9,7 @@ script = ExtResource("1_mqd41")
 bullet_scene = ExtResource("2_q5n32")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(34, -3)
+position = Vector2(21, -3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4, 0)

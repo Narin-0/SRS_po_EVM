@@ -175,6 +175,10 @@ script = ExtResource("3_pdfg5")
 
 [node name="Pistol" parent="Arm" instance=ExtResource("6_k2k3x")]
 position = Vector2(0, 5.9604645e-08)
+fire_rate = null
+bullet_speed = null
+bullet_damage = null
+muzzle_node_path = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.9999995)

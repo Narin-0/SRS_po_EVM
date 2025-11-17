@@ -23,7 +23,22 @@ func shoot(player: CharacterBody2D):
 	player.get_parent().add_child(bullet)
 	
 	bullet.global_position = player.global_position
-	var direction = (player.get_global_mouse_position() - player.global_position).normalized()
+	
+	# --- ИЗМЕНЕННЫЙ КОД ДЛЯ ГОРИЗОНТАЛЬНОГО НАПРАВЛЕНИЯ ПУЛИ ---
+	
+	var mouse_x_difference = player.get_global_mouse_position().x - player.global_position.x
+	
+	var direction: Vector2
+	
+	if mouse_x_difference > 0:
+		# Направление СТРОГО ВПРАВО
+		direction = Vector2.RIGHT # Vector2(1, 0)
+	else:
+		# Направление СТРОГО ВЛЕВО
+		direction = Vector2.LEFT # Vector2(-1, 0)
+		
+	# --- КОНЕЦ ИЗМЕНЕННОГО КОДА ---
+	
 	bullet.direction = direction
 	bullet.speed = bullet_speed
 	bullet.damage = damage
