@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvkd886e6alt"]
+[gd_scene load_steps=6 format=3 uid="uid://cvkd886e6alt"]
 
-[ext_resource type="PackedScene" uid="uid://8x014y6dd2to" path="res://Narin_0/scenes/player.tscn" id="1_l7qyq"]
+[ext_resource type="Script" uid="uid://c83te3cuv1uuo" path="res://scenes/levels/test_levl.gd" id="1_m2oa5"]
 [ext_resource type="Texture2D" uid="uid://bcu6kji6yt8in" path="res://assets/tilesets/plains.png" id="1_negfb"]
 [ext_resource type="PackedScene" uid="uid://cngh53t0oamu3" path="res://Narin_0/scenes/enemy.tscn" id="1_tuohi"]
 
@@ -78,11 +78,9 @@ texture = ExtResource("1_negfb")
 [sub_resource type="TileSet" id="TileSet_m2oa5"]
 sources/0 = SubResource("TileSetAtlasSource_negfb")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuohi"]
-size = Vector2(20, 81.77178)
-
 [node name="test_levl" type="Node2D"]
 texture_filter = 3
+script = ExtResource("1_m2oa5")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_m2oa5")
@@ -99,9 +97,8 @@ sight_radius = 100.0
 chase_speed_multiplier = 1.4
 lose_sight_time = 1.5
 
-[node name="Player" parent="." instance=ExtResource("1_l7qyq")]
+[node name="PositionPlayer_1" type="Marker2D" parent="."]
+position = Vector2(56, -72)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(501, 377)
-scale = Vector2(0.961836, 14.496146)
-shape = SubResource("RectangleShape2D_tuohi")
+[node name="PositionPlayer_2" type="Marker2D" parent="."]
+position = Vector2(61, 31)

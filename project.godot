@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="SRS_po_EVM"
-run/main_scene="uid://cyorbgpukbui7"
+run/main_scene="uid://durr76sh2kdvo"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Singleton="*res://Narin_0/scripts/multiplayer/singleton.gd"
 
 [display]
 
@@ -29,6 +33,7 @@ project/assembly_name="SRS_po_EVM"
 [file_customization]
 
 folder_colors={
+"res://Builds/": "blue",
 "res://Narin_0/": "green",
 "res://main_menu/": "red"
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq5jbhirtojnh"]
 
-[ext_resource type="Texture2D" uid="uid://c3di0unkq8edc" path="res://Narin_0/assets/sprites/items/GUN_01_[square_frame]_01_V1.00.png" id="1_dk26k"]
-[ext_resource type="Script" uid="uid://bdn88f3qltde6" path="res://Narin_0/scripts/pistol.gd" id="1_mqd41"]
+[ext_resource type="Texture2D" uid="uid://c00yuqgpeff3r" path="res://Narin_0/assets/sprites/items/GUN_01_[square_frame]_01_V1.00.png" id="1_dk26k"]
+[ext_resource type="Script" uid="uid://cfs0fs0nyvkor" path="res://Narin_0/scripts/pistol.gd" id="1_mqd41"]
 [ext_resource type="PackedScene" uid="uid://uwk8e2rmsojg" path="res://Narin_0/scenes/bullet.tscn" id="2_q5n32"]
 
 [node name="Pistol" type="Node2D"]
@@ -9,7 +9,7 @@ script = ExtResource("1_mqd41")
 bullet_scene = ExtResource("2_q5n32")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(21, -3)
+position = Vector2(28, -3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4, 0)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://8x014y6dd2to"]
 
-[ext_resource type="Texture2D" uid="uid://7dvmp7mufkt0" path="res://Narin_0/assets/sprites/player/sprite.png" id="1_fc1cn"]
-[ext_resource type="Script" uid="uid://bqrwb4ya07e5f" path="res://Narin_0/scripts/player.gd" id="1_pdfg5"]
-[ext_resource type="Script" uid="uid://c124gpm0w7dkm" path="res://Narin_0/scripts/arm.gd" id="3_pdfg5"]
+[ext_resource type="Texture2D" uid="uid://b4u1e1hwttbeo" path="res://Narin_0/assets/sprites/player/sprite.png" id="1_fc1cn"]
+[ext_resource type="Script" uid="uid://cym2hohuqnbfd" path="res://Narin_0/scripts/player.gd" id="1_pdfg5"]
+[ext_resource type="Script" uid="uid://ph8rhbxl75xb" path="res://Narin_0/scripts/arm.gd" id="3_pdfg5"]
 [ext_resource type="Texture2D" uid="uid://ds3x4l6cp0eoj" path="res://assets/sprites/Sprite-0003.png" id="4_ofbtv"]
 [ext_resource type="Texture2D" uid="uid://b2x8kh4xle580" path="res://assets/sprites/Sprite-0001.png" id="5_4kv1o"]
 [ext_resource type="PackedScene" uid="uid://bq5jbhirtojnh" path="res://Narin_0/scenes/pistol.tscn" id="6_k2k3x"]
