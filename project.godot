@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="SRS_po_EVM"
-run/main_scene="uid://durr76sh2kdvo"
+run/main_scene="uid://cybh1sy0vfrnt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Singleton="*res://Narin_0/scripts/multiplayer/singleton.gd"
+NetworkManager="*res://Narin_0/scripts/network_manager.gd"
 
 [display]
 

@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://cngh53t0oamu3"]
 
-[ext_resource type="Texture2D" uid="uid://c75sqxqmjqoaa" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f3.png" id="1_2orpg"]
-[ext_resource type="Script" uid="uid://2vrhdv88w54r" path="res://Narin_0/scripts/enemy.gd" id="1_icj16"]
-[ext_resource type="Texture2D" uid="uid://bwtjmeokhiu4v" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f2.png" id="2_icj16"]
-[ext_resource type="Texture2D" uid="uid://cdik1fefu5tgf" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f1.png" id="3_7n1ui"]
-[ext_resource type="Texture2D" uid="uid://d04wo84el2rei" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f0.png" id="4_kjskq"]
-[ext_resource type="Texture2D" uid="uid://qskfqbt6ovn" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f1.png" id="5_0ojmp"]
-[ext_resource type="Texture2D" uid="uid://dnruqlbeh5pbx" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f2.png" id="6_qcjj7"]
-[ext_resource type="Texture2D" uid="uid://ctjh7t86r4ecw" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f3.png" id="7_ng0w1"]
-[ext_resource type="Texture2D" uid="uid://nfd7shrb15cp" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f0.png" id="8_yyn2e"]
+[ext_resource type="Texture2D" uid="uid://cd10clbwdjbvm" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f3.png" id="1_2orpg"]
+[ext_resource type="Script" uid="uid://chf2lr6a42edx" path="res://Narin_0/scripts/enemy.gd" id="1_icj16"]
+[ext_resource type="Texture2D" uid="uid://dkie4djytyyus" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f2.png" id="2_icj16"]
+[ext_resource type="Texture2D" uid="uid://boq51fxsg34a7" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f1.png" id="3_7n1ui"]
+[ext_resource type="Texture2D" uid="uid://d3ncxyfww3vr3" path="res://Narin_0/assets/sprites/enemies/big_zombie_idle_anim_f0.png" id="4_kjskq"]
+[ext_resource type="Texture2D" uid="uid://cshpd8xngocf8" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f1.png" id="5_0ojmp"]
+[ext_resource type="Texture2D" uid="uid://by1veqjagtq3" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f2.png" id="6_qcjj7"]
+[ext_resource type="Texture2D" uid="uid://dxk2xfxsb5il2" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f3.png" id="7_ng0w1"]
+[ext_resource type="Texture2D" uid="uid://dsd8lt12yv844" path="res://Narin_0/assets/sprites/enemies/big_zombie_run_anim_f0.png" id="8_yyn2e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8i5b4"]
 animations = [{
@@ -31,13 +31,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_ng0w1")
+}, {
+"duration": 1.0,
 "texture": ExtResource("5_0ojmp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_qcjj7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_ng0w1")
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_yyn2e")
@@ -52,17 +52,11 @@ size = Vector2(21.548172, 20.012224)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_icj16")
-speed = null
-damage = null
-touch_cooldown = null
-sight_radius = null
-chase_speed_multiplier = null
-lose_sight_time = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8i5b4")
 animation = &"walking"
-frame_progress = 0.02327749
+frame_progress = 0.6603245
 
 [node name="Area2D" type="Area2D" parent="."]
 

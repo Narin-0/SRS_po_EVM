@@ -199,5 +199,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_48cn3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kg1e4")
 script = ExtResource("5_itpeu")
 
+[connection signal="pressed" from="VBoxContainer/Buttons/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Soundbutton" to="Soundbutton" method="_on_pressed"]
 [connection signal="toggled" from="Soundbutton" to="Soundbutton" method="_on_soundbutton_toggled"]

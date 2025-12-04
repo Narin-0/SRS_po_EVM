@@ -44,3 +44,7 @@ func _input(event):
 
 func _on_soundbutton_toggled(toggled_on: bool) -> void:
 	pass # Replace with function body.
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Narin_0/ui/main_menu.tscn")
