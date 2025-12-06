@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bylabgssj253p"]
+[gd_scene load_steps=34 format=3 uid="uid://bylabgssj253p"]
 
 [ext_resource type="PackedScene" uid="uid://dguty6oj6hkc1" path="res://scenes/Element_scens/Shipy.tscn" id="1_ctjcb"]
 [ext_resource type="Texture2D" uid="uid://bcu6kji6yt8in" path="res://assets/tilesets/plains.png" id="1_husb0"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ru024a71hk4" path="res://assets/tilesets/atlas_walls_high-16x32.png" id="3_ctjcb"]
 [ext_resource type="Texture2D" uid="uid://5hljdur8a8m1" path="res://assets/tilesets/atlas_walls_low-16x16.png" id="4_m4ocp"]
 [ext_resource type="PackedScene" uid="uid://quqdb60ooefi" path="res://scenes/Element_scens/Button_red.tscn" id="6_m4ocp"]
-[ext_resource type="PackedScene" uid="uid://cngh53t0oamu3" path="res://Narin_0/scenes/enemy.tscn" id="8_dc1qj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02y88"]
 texture = ExtResource("3_ctjcb")
@@ -569,6 +568,3 @@ position = Vector2(3473, 2323)
 
 [node name="SpawnPoint20" type="Marker2D" parent="SpawnPositions"]
 position = Vector2(1938, 2227)
-
-[node name="Enemy" parent="." instance=ExtResource("8_dc1qj")]
-position = Vector2(-175, -7)
