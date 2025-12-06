@@ -249,5 +249,21 @@ offset_top = 303.0
 offset_right = 509.0
 offset_bottom = 396.0
 
+[node name="EnemyHPContainer" type="Container" parent="."]
+offset_left = -12.0
+offset_top = 26.0
+offset_right = 28.0
+offset_bottom = 66.0
+scale = Vector2(0.6521085, 0.1240853)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="EnemyHPContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="EnemyHPContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EnemyHPContainer"]
+layout_mode = 2
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_k2k3x")
