@@ -16,7 +16,7 @@ extends CharacterBody2D
 var health: float = 0.0
 var stamina: float = 0.0
 var anim_sprite: AnimatedSprite2D
-var hp_bar: TextureProgressBar  # Свой HP бар (в UI)
+var hp_bar: TextureProgressBar
 var stamina_bar: TextureProgressBar
 var is_invincible: bool = false
 var idle_time: float = 0.0
@@ -31,18 +31,28 @@ var death_menu: Control
 var _spawn_position: Vector2
 @export var respawn_invincibility: float = 1.2
 
+# 🔫 СИСТЕМА ОРУЖИЯ
 @onready var gun_sprite = $GunAnchor/GunSprite2D
+@onready var gun_anchor = $GunAnchor
+@onready var muzzle_point = $GunAnchor/Muzzle
+
+var weapon_manager: WeaponManager
+var is_shooting: bool = false
+
+# Сцены оружия (назначьте в редакторе или создайте программно)
+@export var pistol_scene: PackedScene
+@export var machinegun_scene: PackedScene
+@export var shotgun_scene: PackedScene
+@export var laser_scene: PackedScene
 
 # 🌐 СЕТЕВЫЕ ПЕРЕМЕННЫЕ
 var player_id: int = 0
 var _sync_timer: float = 0.0
 var _sync_interval: float = 0.1
 
-# HP бар над головой (для врагов)
 var enemy_hp_bar: TextureProgressBar
 var enemy_hp_container: Control
 
-# Переменные для удалённых игроков
 var _remote_position: Vector2 = Vector2.ZERO
 var _remote_animation: String = "idle"
 var _remote_flip: bool = false
@@ -51,7 +61,6 @@ func _ready() -> void:
 	anim_sprite = $AnimatedSprite2D
 	hp_bar = $UI/HPBar
 	stamina_bar = get_node_or_null("UI/StaminaBar")
-	gun_sprite = get_node_or_null("GunAnchor/GunSprite2D")
 	
 	_original_modulate = modulate
 	add_to_group("player")
@@ -87,9 +96,11 @@ func _ready() -> void:
 	player_id = get_multiplayer_authority()
 	_remote_position = global_position
 	
-	# 🎯 Настройка UI в зависимости от владельца
+	# 🔫 ИНИЦИАЛИЗАЦИЯ СИСТЕМЫ ОРУЖИЯ
 	if is_multiplayer_authority():
-		# Это МОЙ игрок - показываем полный UI
+		_setup_weapon_system()
+	
+	if is_multiplayer_authority():
 		if hp_bar:
 			hp_bar.visible = true
 		if stamina_bar:
@@ -97,7 +108,6 @@ func _ready() -> void:
 		
 		print("👤 Мой игрок %d готов" % player_id)
 	else:
-		# Это ЧУЖОЙ игрок - скрываем UI и создаём HP бар над головой
 		if hp_bar:
 			hp_bar.visible = false
 		if stamina_bar:
@@ -109,34 +119,50 @@ func _ready() -> void:
 		
 		print("👥 Противник %d появился" % player_id)
 
+func _setup_weapon_system() -> void:
+	"""Настройка системы оружия"""
+	weapon_manager = WeaponManager.new()
+	add_child(weapon_manager)
+	weapon_manager.setup(self, muzzle_point, gun_sprite)
+	
+	# Добавляем оружие (создайте сцены или инстанцируйте скрипты)
+	var pistol = PistolWeapon.new()
+	pistol.projectile_scene = preload("res://Narin_0/predmety/weapons/scenes/Projectile.tscn")  # Укажите путь
+	weapon_manager.add_weapon(pistol)
+	
+	var machinegun = MachineGunWeapon.new()
+	machinegun.projectile_scene = preload("res://Narin_0/predmety/weapons/scenes/Projectile.tscn")
+	weapon_manager.add_weapon(machinegun)
+	
+	var shotgun = ShotgunWeapon.new()
+	shotgun.projectile_scene = preload("res://Narin_0/predmety/weapons/scenes/Projectile.tscn")
+	weapon_manager.add_weapon(shotgun)
+	
+	var laser = LaserWeapon.new()
+	weapon_manager.add_weapon(laser)
+
 func _create_enemy_hp_bar() -> void:
 	"""Создаёт HP бар над головой противника"""
-	
-	# Контейнер для позиционирования
 	enemy_hp_container = Control.new()
-	enemy_hp_container.position = Vector2(-25, -20)  # Над головой
-	enemy_hp_container.z_index = 100  # Поверх всего
+	enemy_hp_container.position = Vector2(-25, -20)
+	enemy_hp_container.z_index = 100
 	add_child(enemy_hp_container)
 	
-	# Фон HP бара
 	var bg = ColorRect.new()
-	bg.color = Color(0.2, 0.2, 0.2, 0.8)  # Тёмно-серый фон
+	bg.color = Color(0.2, 0.2, 0.2, 0.8)
 	bg.size = Vector2(52, 8)
 	bg.position = Vector2(-1, -1)
 	enemy_hp_container.add_child(bg)
 	
-	# HP бар
 	enemy_hp_bar = TextureProgressBar.new()
 	enemy_hp_bar.size = Vector2(50, 6)
 	enemy_hp_bar.max_value = max_health
 	enemy_hp_bar.value = max_health
 	
-	# Создаём текстуры программно (если нет готовых)
 	_setup_hp_bar_textures()
 	
 	enemy_hp_container.add_child(enemy_hp_bar)
 	
-	# Опционально: добавить имя игрока
 	var name_label = Label.new()
 	name_label.text = "Player %d" % player_id
 	name_label.position = Vector2(0, -15)
@@ -147,30 +173,20 @@ func _create_enemy_hp_bar() -> void:
 	enemy_hp_container.add_child(name_label)
 
 func _setup_hp_bar_textures() -> void:
-	"""Создаёт простые текстуры для HP бара если их нет"""
-	
-	# Если у вас уже есть текстуры - раскомментируйте это:
-	# enemy_hp_bar.texture_under = preload("res://path/to/hp_bg.png")
-	# enemy_hp_bar.texture_progress = preload("res://path/to/hp_fill.png")
-	# return
-	
-	# Создаём простые градиентные текстуры программно
 	var bg_texture = _create_solid_texture(Vector2(50, 6), Color(0.3, 0.3, 0.3))
 	var fill_texture = _create_gradient_texture(Vector2(50, 6), 
-		Color(1.0, 0.2, 0.2),  # Красный
-		Color(0.8, 0.0, 0.0))   # Тёмно-красный
+		Color(1.0, 0.2, 0.2),
+		Color(0.8, 0.0, 0.0))
 	
 	enemy_hp_bar.texture_under = bg_texture
 	enemy_hp_bar.texture_progress = fill_texture
 
 func _create_solid_texture(size: Vector2, color: Color) -> Texture2D:
-	"""Создаёт одноцветную текстуру"""
 	var img = Image.create(int(size.x), int(size.y), false, Image.FORMAT_RGBA8)
 	img.fill(color)
 	return ImageTexture.create_from_image(img)
 
 func _create_gradient_texture(size: Vector2, color1: Color, color2: Color) -> Texture2D:
-	"""Создаёт градиентную текстуру"""
 	var img = Image.create(int(size.x), int(size.y), false, Image.FORMAT_RGBA8)
 	
 	for x in range(int(size.x)):
@@ -184,10 +200,27 @@ func _create_gradient_texture(size: Vector2, color1: Color, color2: Color) -> Te
 func _input(event):
 	if not is_multiplayer_authority():
 		return
-	if event.is_action_pressed("ui_right"):
-		$Inventory.next_item()
-	elif event.is_action_pressed("ui_left"):
-		$Inventory.previous_item()
+	
+	# 🔫 ПЕРЕКЛЮЧЕНИЕ ОРУЖИЯ
+	if event.is_action_pressed("weapon_1"):
+		weapon_manager.switch_weapon(0)
+	elif event.is_action_pressed("weapon_2"):
+		weapon_manager.switch_weapon(1)
+	elif event.is_action_pressed("weapon_3"):
+		weapon_manager.switch_weapon(2)
+	elif event.is_action_pressed("weapon_4"):
+		weapon_manager.switch_weapon(3)
+	
+	# КОЛЕСИКО МЫШИ
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			weapon_manager.previous_weapon()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			weapon_manager.next_weapon()
+	
+	# ПЕРЕЗАРЯДКА
+	if event.is_action_pressed("reload"):
+		weapon_manager.reload()
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
@@ -199,7 +232,7 @@ func _handle_local_player(delta: float) -> void:
 	if is_dead:
 		return
 	
-	# ВВОД
+	# ДВИЖЕНИЕ
 	var input_vector = Vector2.ZERO
 	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -222,42 +255,80 @@ func _handle_local_player(delta: float) -> void:
 	else:
 		idle_time = 0.0
 		current_animation = "run" if _is_sprinting else "walking"
-		if input_vector.x != 0:
-			anim_sprite.flip_h = input_vector.x < 0
 
 	if anim_sprite.animation != current_animation:
 		anim_sprite.play(current_animation)
 
 	move_and_slide()
 
-	# ОРУЖИЕ
-	if is_instance_valid(gun_sprite):
-		var mouse_x = get_global_mouse_position().x
-		var flip = mouse_x < global_position.x
-		anim_sprite.flip_h = flip
-		gun_sprite.flip_h = flip
+	# 🔫 ПРИЦЕЛИВАНИЕ И СТРЕЛЬБА
+	_handle_aiming()
+	_handle_shooting()
 
-	# 🎯 HP и STAMINA обрабатываются ТОЛЬКО у владельца
 	_handle_stamina(delta)
 	_check_auto_regen(delta)
 	
-	# Обновляем свои UI бары
 	if hp_bar:
 		hp_bar.value = int(health)
 	if stamina_bar:
 		stamina_bar.value = int(stamina)
 
-	# 🌐 СИНХРОНИЗАЦИЯ
+	# СИНХРОНИЗАЦИЯ
 	_sync_timer += delta
 	if _sync_timer >= _sync_interval:
 		_sync_timer = 0.0
-		# Отправляем визуальное состояние + HP для отображения над головой
 		_sync_visual_state.rpc(global_position, current_animation, anim_sprite.flip_h, int(health))
 
-# 🌐 RPC для синхронизации визуального состояния
+func _handle_aiming() -> void:
+	"""Прицеливание оружия на курсор"""
+	if not gun_anchor:
+		return
+	
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - gun_anchor.global_position).normalized()
+	
+	# Поворот оружия
+	gun_anchor.rotation = direction.angle()
+	
+	# Отражение спрайта
+	var flip = mouse_pos.x < global_position.x
+	anim_sprite.flip_h = flip
+	
+	if gun_sprite:
+		gun_sprite.flip_v = flip
+		# Корректировка позиции при отражении
+		gun_sprite.offset.y = 2 if flip else -2
+
+func _handle_shooting() -> void:
+	"""Обработка стрельбы"""
+	if not weapon_manager:
+		return
+	
+	var current_weapon = weapon_manager.get_current_weapon()
+	if not current_weapon:
+		return
+	
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - muzzle_point.global_position).normalized()
+	
+	# АВТОМАТИЧЕСКОЕ ОРУЖИЕ - зажатая кнопка
+	if current_weapon.auto_fire:
+		if Input.is_action_pressed("shoot"):
+			weapon_manager.fire(direction)
+			is_shooting = true
+		else:
+			weapon_manager.stop_firing()
+			is_shooting = false
+	# ОДИНОЧНОЕ ОРУЖИЕ - нажатие
+	else:
+		if Input.is_action_just_pressed("shoot"):
+			weapon_manager.fire(direction)
+			is_shooting = true
+		elif Input.is_action_just_released("shoot"):
+			is_shooting = false
+
 @rpc("unreliable")
 func _sync_visual_state(pos: Vector2, anim: String, flip: bool, hp: int) -> void:
-	# Получаем данные от других игроков
 	if is_multiplayer_authority():
 		return
 	
@@ -265,42 +336,33 @@ func _sync_visual_state(pos: Vector2, anim: String, flip: bool, hp: int) -> void
 	_remote_animation = anim
 	_remote_flip = flip
 	
-	# Обновляем HP бар над головой противника
 	if enemy_hp_bar:
 		enemy_hp_bar.value = hp
-		
-		# Опционально: меняем цвет в зависимости от HP
 		_update_hp_bar_color(hp)
 
 func _update_hp_bar_color(hp: int) -> void:
-	"""Меняет цвет HP бара в зависимости от здоровья"""
 	if not enemy_hp_bar:
 		return
 	
 	var hp_percent = float(hp) / float(max_health)
 	
-	var color_high = Color(0.2, 1.0, 0.2)   # Зелёный (100% HP)
-	var color_mid = Color(1.0, 1.0, 0.2)    # Жёлтый (50% HP)
-	var color_low = Color(1.0, 0.2, 0.2)    # Красный (0% HP)
+	var color_high = Color(0.2, 1.0, 0.2)
+	var color_mid = Color(1.0, 1.0, 0.2)
+	var color_low = Color(1.0, 0.2, 0.2)
 	
 	var final_color: Color
 	if hp_percent > 0.5:
-		# Интерполяция от зелёного к жёлтому
 		var t = (1.0 - hp_percent) * 2.0
 		final_color = color_high.lerp(color_mid, t)
 	else:
-		# Интерполяция от жёлтого к красному
 		var t = (0.5 - hp_percent) * 2.0
 		final_color = color_mid.lerp(color_low, t)
 	
-	# Применяем цвет через tint
 	enemy_hp_bar.tint_progress = final_color
 
 func _handle_remote_player(delta: float) -> void:
-	# Плавная интерполяция позиции
 	global_position = global_position.lerp(_remote_position, 0.15)
 	
-	# Обновляем анимацию
 	if anim_sprite.animation != _remote_animation:
 		anim_sprite.animation = _remote_animation
 		anim_sprite.play()
@@ -309,7 +371,6 @@ func _handle_remote_player(delta: float) -> void:
 		anim_sprite.flip_h = _remote_flip
 
 func take_damage(amount: float) -> void:
-	# Только владелец может получать урон
 	if is_multiplayer_authority():
 		_apply_damage(amount)
 
@@ -327,7 +388,6 @@ func _apply_damage(amount: float) -> void:
 	if health <= 0:
 		is_dead = true
 		_on_death()
-		# Уведомляем всех о смерти
 		_sync_death.rpc()
 		return
 
@@ -338,7 +398,6 @@ func _apply_damage(amount: float) -> void:
 
 @rpc("reliable")
 func _sync_death() -> void:
-	"""Синхронизирует смерть игрока для всех"""
 	if not is_multiplayer_authority():
 		if enemy_hp_bar:
 			enemy_hp_bar.value = 0
@@ -381,7 +440,6 @@ func _on_respawn_pressed() -> void:
 
 	is_dead = false
 	
-	# Уведомляем всех о респавне
 	_sync_respawn.rpc()
 	
 	_set_invincible(true)
@@ -394,7 +452,6 @@ func _on_respawn_pressed() -> void:
 
 @rpc("reliable")
 func _sync_respawn() -> void:
-	"""Синхронизирует респавн игрока для всех"""
 	if not is_multiplayer_authority():
 		if enemy_hp_bar:
 			enemy_hp_bar.value = max_health

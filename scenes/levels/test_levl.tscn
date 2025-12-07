@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvkd886e6alt"]
+[gd_scene load_steps=7 format=3 uid="uid://cvkd886e6alt"]
 
 [ext_resource type="Script" uid="uid://c83te3cuv1uuo" path="res://scenes/levels/test_levl.gd" id="1_m2oa5"]
 [ext_resource type="Texture2D" uid="uid://bcu6kji6yt8in" path="res://assets/tilesets/plains.png" id="1_negfb"]
 [ext_resource type="PackedScene" uid="uid://cngh53t0oamu3" path="res://Narin_0/scenes/enemy.tscn" id="1_tuohi"]
+[ext_resource type="PackedScene" uid="uid://8x014y6dd2to" path="res://Narin_0/scenes/player.tscn" id="4_tuohi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_negfb"]
 texture = ExtResource("1_negfb")
@@ -91,9 +92,7 @@ layer_0/tile_data = PackedInt32Array(1245215, 131072, 1, 1310751, 131072, 1, 137
 visible = false
 position = Vector2(56, -72)
 
-[node name="PositionPlayer_2" type="Marker2D" parent="."]
-visible = false
-position = Vector2(61, 31)
-
 [node name="Enemy" parent="." instance=ExtResource("1_tuohi")]
 position = Vector2(-162, -3)
+
+[node name="Player" parent="." instance=ExtResource("4_tuohi")]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://8x014y6dd2to"]
+[gd_scene load_steps=29 format=3 uid="uid://8x014y6dd2to"]
 
 [ext_resource type="Texture2D" uid="uid://b4u1e1hwttbeo" path="res://Narin_0/assets/sprites/player/sprite.png" id="1_fc1cn"]
 [ext_resource type="Script" uid="uid://cym2hohuqnbfd" path="res://Narin_0/scripts/player.gd" id="1_pdfg5"]
-[ext_resource type="Script" uid="uid://ph8rhbxl75xb" path="res://Narin_0/scripts/arm.gd" id="3_pdfg5"]
+[ext_resource type="Texture2D" uid="uid://i34sxepy5jmk" path="res://Narin_0/assets/sprites/items/Glock - P80 [64x48].png" id="3_k2k3x"]
 [ext_resource type="Texture2D" uid="uid://ds3x4l6cp0eoj" path="res://assets/sprites/Sprite-0003.png" id="4_ofbtv"]
 [ext_resource type="Texture2D" uid="uid://b2x8kh4xle580" path="res://assets/sprites/Sprite-0001.png" id="5_4kv1o"]
 [ext_resource type="Texture2D" uid="uid://dhvu5a4bqxj7k" path="res://assets/sprites/Sprite-0002.png" id="6_xu5s8"]
+[ext_resource type="Texture2D" uid="uid://d0y88l8q5vl7h" path="res://assets/sprites/mob_healt_progress.png" id="7_pdfg5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jalfv"]
 atlas = ExtResource("1_fc1cn")
@@ -168,12 +169,6 @@ position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_hs03v")
 animation = &"idle"
 
-[node name="Arm" type="Node2D" parent="."]
-position = Vector2(0, 4)
-rotation = -0.010661513
-scale = Vector2(0.3976796, 0.3976796)
-script = ExtResource("3_pdfg5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.9999995)
 scale = Vector2(0.5809164, 0.22761554)
@@ -183,6 +178,17 @@ shape = SubResource("CapsuleShape2D_3fbgt")
 scale = Vector2(0.6838521, -10.223607)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="GunAnchor" type="Node2D" parent="."]
+position = Vector2(0, 7)
+
+[node name="GunSprite2D" type="Sprite2D" parent="GunAnchor"]
+position = Vector2(2, 0)
+scale = Vector2(0.32576758, 0.30205548)
+texture = ExtResource("3_k2k3x")
+
+[node name="Muzzle" type="Marker2D" parent="GunAnchor"]
+position = Vector2(12, -4)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -248,6 +254,28 @@ offset_left = 396.0
 offset_top = 303.0
 offset_right = 509.0
 offset_bottom = 396.0
+
+[node name="EnergyBar" type="TextureProgressBar" parent="UI"]
+offset_left = 55.99997
+offset_top = 116.0
+offset_right = 97.99997
+offset_bottom = 156.0
+rotation = 1.5707964
+scale = Vector2(7.1156926, 5.1747427)
+texture_progress = ExtResource("7_pdfg5")
+tint_progress = Color(0.16470589, 0.41960785, 1, 1)
+
+[node name="AmmoLabel" type="Label" parent="UI"]
+offset_left = 106.0
+offset_top = 129.0
+offset_right = 146.0
+offset_bottom = 152.0
+
+[node name="WeaponNameLabel2" type="Label" parent="UI"]
+offset_left = 98.0
+offset_top = 151.0
+offset_right = 138.0
+offset_bottom = 174.0
 
 [node name="EnemyHPContainer" type="Container" parent="."]
 offset_left = -12.0
