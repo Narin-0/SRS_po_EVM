@@ -1,15 +1,75 @@
-[gd_scene load_steps=15 format=3 uid="uid://cybh1sy0vfrnt"]
+[gd_scene load_steps=28 format=3 uid="uid://cybh1sy0vfrnt"]
 
-[ext_resource type="Texture2D" uid="uid://b1goinnhfsdf3" path="res://main_menu/Дизайн без названия (8).png" id="1_fs5a5"]
 [ext_resource type="Script" uid="uid://bpk78xsh18isc" path="res://main_menu/mainmenu.gd" id="1_itpeu"]
 [ext_resource type="AudioStream" uid="uid://qwxn5sefvk7x" path="res://main_menu/OMNIMAN _ TOM TOM SLOWED EDIT (mp3cut.net).mp3" id="2_fs5a5"]
+[ext_resource type="Texture2D" uid="uid://c3l0m2fm7glrd" path="res://Characterchoose/PNG/Рисунок1.png" id="2_kg1e4"]
+[ext_resource type="Texture2D" uid="uid://b2lyibvn1x3uq" path="res://Characterchoose/PNG/Рисунок9.png" id="2_s5b7i"]
 [ext_resource type="FontFile" uid="uid://dl65ja08a4obg" path="res://fonts/fonts1/architect-s-daughter/ArchitectsDaughter.ttf" id="3_fs5a5"]
+[ext_resource type="Texture2D" uid="uid://b66qiayig1awk" path="res://Characterchoose/PNG/e680cd803e33a0ab3af894d076d7961b.jpg" id="3_itpeu"]
+[ext_resource type="Texture2D" uid="uid://t8xb6df7iqq6" path="res://Characterchoose/PNG/Рисунок2.png" id="3_s5b7i"]
+[ext_resource type="Texture2D" uid="uid://bdp1hhg5ml74i" path="res://Characterchoose/PNG/Рисунок3.png" id="4_bs8yq"]
+[ext_resource type="Texture2D" uid="uid://bd2m5jobiux7j" path="res://Characterchoose/PNG/Рисунок4.png" id="5_58vjp"]
 [ext_resource type="Script" uid="uid://d4ggyfp7rppyk" path="res://main_menu/soundbutton.gd" id="5_itpeu"]
+[ext_resource type="Texture2D" uid="uid://dhq3eeilwehcx" path="res://Characterchoose/PNG/Рисунок5.png" id="6_uh4fn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs8yq"]
+atlas = ExtResource("2_s5b7i")
+region = Rect2(0, 0, 302, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58vjp"]
+atlas = ExtResource("2_s5b7i")
+region = Rect2(302, 0, 302, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh4fn"]
+atlas = ExtResource("2_s5b7i")
+region = Rect2(604, 0, 302, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi1rk"]
+atlas = ExtResource("2_s5b7i")
+region = Rect2(906, 0, 302, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aalns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs8yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58vjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh4fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi1rk")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 6.0
+}]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_pi1rk"]
+frames = 6
+one_shot = true
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_kg1e4")
+frame_1/texture = ExtResource("3_s5b7i")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_bs8yq")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_58vjp")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_uh4fn")
+frame_4/duration = 1.0
+frame_5/duration = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aalns"]
+texture = SubResource("AnimatedTexture_pi1rk")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qfadr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfadr"]
-bg_color = Color(0.36078432, 0.17254902, 0.023529412, 1)
+bg_color = Color(0.064430855, 0.21676037, 0.30734512, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -98,6 +158,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_itpeu")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(99, 529)
+scale = Vector2(0.7791223, 0.8333334)
+sprite_frames = SubResource("SpriteFrames_aalns")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.046556957
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -459.0
+offset_top = -19.0
+offset_right = 800.0
+offset_bottom = 639.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_aalns")
+
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_fs5a5")
 volume_db = -8.914
@@ -116,7 +192,7 @@ offset_left = -19.0
 offset_top = -24.0
 offset_right = 1340.0
 offset_bottom = 673.0
-texture = ExtResource("1_fs5a5")
+texture = ExtResource("3_itpeu")
 expand_mode = 1
 stretch_mode = 6
 
@@ -128,8 +204,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -87.0
-offset_right = 87.0
+offset_left = -56.0
+offset_top = -20.0
+offset_right = 263.09082
+offset_bottom = 39.272705
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1, 1.1)
@@ -144,7 +222,7 @@ alignment = 1
 [node name="Button" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_fs5a5")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
@@ -154,7 +232,7 @@ text = "Start"
 [node name="Button5" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_fs5a5")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
@@ -164,7 +242,7 @@ text = "RuleBook"
 [node name="Button6" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_fs5a5")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
@@ -174,7 +252,7 @@ text = "Character"
 [node name="Button7" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_fs5a5")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 33
 theme_override_styles/normal = SubResource("StyleBoxFlat_qfadr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_itpeu")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7rhom")
@@ -183,7 +261,7 @@ text = "Exit
 "
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(677, 133)
+position = Vector2(991, 232)
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_qfadr")
 
@@ -199,5 +277,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_48cn3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kg1e4")
 script = ExtResource("5_itpeu")
 
+[connection signal="pressed" from="VBoxContainer/Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="Soundbutton" to="Soundbutton" method="_on_pressed"]
 [connection signal="toggled" from="Soundbutton" to="Soundbutton" method="_on_soundbutton_toggled"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://niqnflk4paku"]
+
+[ext_resource type="Script" uid="uid://bn8nr03fp3rvv" path="res://Narin_0/ui/main_menu.gd" id="1_1ipn7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ipn7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 243.0
+offset_right = 654.0
+offset_bottom = 398.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Выберите режим"
+
+[node name="HostButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Создать игру"
+
+[node name="JoinButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Присоединиться"
+
+[node name="IPInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "192.168.1.1"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ожидание..."
+
+[node name="PlayerCountLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2

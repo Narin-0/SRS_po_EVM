@@ -1,0 +1,9 @@
+extends Control
+
+
+func _on_button_4_pressed() -> void:
+	var error = get_tree().change_scene_to_file("res://Characterchoose/choosemenu_2.tscn")
+
+
+func _on_button_6_pressed() -> void:
+	var error = get_tree().change_scene_to_file("res://main_menu/mainmenu.tscn")

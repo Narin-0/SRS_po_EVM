@@ -31,13 +31,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_ng0w1")
+}, {
+"duration": 1.0,
 "texture": ExtResource("5_0ojmp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_qcjj7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_ng0w1")
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_yyn2e")
@@ -52,16 +52,14 @@ size = Vector2(21.548172, 20.012224)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_icj16")
-speed = null
-damage = null
-touch_cooldown = null
-sight_radius = null
-chase_speed_multiplier = null
-lose_sight_time = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8i5b4")
 animation = &"walking"
+<<<<<<< HEAD
+=======
+frame_progress = 0.6603245
+>>>>>>> d1b7316aeb1d4c2c710a046a9a1dae59b5ba4b5f
 
 [node name="Area2D" type="Area2D" parent="."]
 
