@@ -507,8 +507,64 @@ shape = SubResource("RectangleShape2D_ft23d")
 position = Vector2(121.5, -883.25)
 shape = SubResource("RectangleShape2D_wc5ax")
 
-[node name="PositionPlayer_1" type="Marker2D" parent="."]
-position = Vector2(56, -72)
+[node name="SpawnPositions" type="Node2D" parent="."]
 
-[node name="PositionPlayer_2" type="Marker2D" parent="."]
-position = Vector2(56, -13)
+[node name="SpawnPoint1" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(28, 25)
+
+[node name="SpawnPoint2" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(28, -43)
+
+[node name="SpawnPoint3" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-1518, 2494)
+
+[node name="SpawnPoint4" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-2975, 2514)
+
+[node name="SpawnPoint5" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4815, 2162)
+
+[node name="SpawnPoint6" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4238, 611)
+
+[node name="SpawnPoint7" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4702, -253)
+
+[node name="SpawnPoint8" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-3919, -1533)
+
+[node name="SpawnPoint9" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4399, -2173)
+
+[node name="SpawnPoint10" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-2686, -1741)
+
+[node name="SpawnPoint11" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-1310, -2221)
+
+[node name="SpawnPoint12" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(418, -2477)
+
+[node name="SpawnPoint13" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(3250, -1981)
+
+[node name="SpawnPoint14" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4515, -1949)
+
+[node name="SpawnPoint15" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4530, -973)
+
+[node name="SpawnPoint16" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4530, -13)
+
+[node name="SpawnPoint17" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4594, 1059)
+
+[node name="SpawnPoint18" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4402, 1986)
+
+[node name="SpawnPoint19" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(3473, 2323)
+
+[node name="SpawnPoint20" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1938, 2227)

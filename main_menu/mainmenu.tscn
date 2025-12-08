@@ -188,9 +188,9 @@ parameters/looping = true
 motion_mirroring = Vector2(3000, 1920)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-offset_left = -19.0
+offset_left = -21.0
 offset_top = -24.0
-offset_right = 1340.0
+offset_right = 1338.0
 offset_bottom = 673.0
 texture = ExtResource("3_itpeu")
 expand_mode = 1
