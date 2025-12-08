@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://c27uje2bsn18o"]
+
+[ext_resource type="PackedScene" uid="uid://b6fn4777prt8q" path="res://character_slot.tscn" id="2_d77p8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="CharacterSlot" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_d77p8")]
+layout_mode = 2
