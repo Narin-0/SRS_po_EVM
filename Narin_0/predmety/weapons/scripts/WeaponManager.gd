@@ -46,16 +46,35 @@ func setup(p: CharacterBody2D, muzzle: Marker2D, sprite: Sprite2D) -> void:
 	if energy_bar:
 		energy_bar.max_value = max_energy
 		energy_bar.value = current_energy
+	
+	# Скрываем оружие если нет активного
+	if weapon_sprite and weapons.is_empty():
+		weapon_sprite.visible = false
 
 func add_weapon(weapon: WeaponSystem) -> void:
 	"""Добавить оружие в инвентарь"""
-	weapon.setup(player, muzzle_point)
+	weapon.setup(player, muzzle_point, weapon_sprite)
 	weapons.append(weapon)
 	add_child(weapon)
+	
+	# Показываем спрайт оружия
+	if weapon_sprite:
+		weapon_sprite.visible = true
 	
 	# Активируем первое оружие
 	if weapons.size() == 1:
 		switch_weapon(0)
+
+func has_weapon_type(weapon_type_name: String) -> bool:
+	"""Проверка наличия оружия по имени"""
+	for weapon in weapons:
+		if weapon.weapon_name == weapon_type_name:
+			return true
+	return false
+
+func get_weapon_count() -> int:
+	"""Количество оружия в инвентаре"""
+	return weapons.size()
 
 func switch_weapon(index: int) -> void:
 	"""Переключить оружие по индексу"""
@@ -130,10 +149,13 @@ func get_current_weapon() -> WeaponSystem:
 func _update_weapon_sprite() -> void:
 	"""Обновить спрайт оружия"""
 	if not weapon_sprite or not current_weapon:
+		if weapon_sprite:
+			weapon_sprite.visible = false
 		return
 	
-	# Здесь вы можете загружать разные спрайты для разных оружий
-	# weapon_sprite.texture = current_weapon.weapon_texture
+	# Показываем и обновляем визуал текущего оружия
+	weapon_sprite.visible = true
+	current_weapon.update_weapon_visual()
 
 func _update_ui() -> void:
 	_update_energy_ui()

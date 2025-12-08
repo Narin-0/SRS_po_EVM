@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg8dtxft0viuo"]
+
+[ext_resource type="Texture2D" uid="uid://i34sxepy5jmk" path="res://Narin_0/assets/sprites/items/Glock - P80 [64x48].png" id="1_hbufa"]
+
+[node name="pistol" type="Sprite2D"]
+texture = ExtResource("1_hbufa")

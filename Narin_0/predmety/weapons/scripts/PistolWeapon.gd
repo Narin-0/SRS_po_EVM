@@ -12,3 +12,10 @@ func _init() -> void:
 	auto_fire = false
 	max_ammo = 12
 	reload_time = 1.2
+	
+	# Визуал
+	weapon_color = Color(0.7, 0.7, 0.7)  # Серый
+	weapon_offset = Vector2(0, -2)
+
+func _get_default_size() -> Vector2:
+	return Vector2(20, 8)

@@ -1,12 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://8x014y6dd2to"]
+[gd_scene load_steps=30 format=3 uid="uid://8x014y6dd2to"]
 
 [ext_resource type="Texture2D" uid="uid://b4u1e1hwttbeo" path="res://Narin_0/assets/sprites/player/sprite.png" id="1_fc1cn"]
 [ext_resource type="Script" uid="uid://cym2hohuqnbfd" path="res://Narin_0/scripts/player.gd" id="1_pdfg5"]
-[ext_resource type="Texture2D" uid="uid://i34sxepy5jmk" path="res://Narin_0/assets/sprites/items/Glock - P80 [64x48].png" id="3_k2k3x"]
+[ext_resource type="PackedScene" uid="uid://bq5jbhirtojnh" path="res://Narin_0/scenes/pistol.tscn" id="2_ofbtv"]
 [ext_resource type="Texture2D" uid="uid://ds3x4l6cp0eoj" path="res://assets/sprites/Sprite-0003.png" id="4_ofbtv"]
 [ext_resource type="Texture2D" uid="uid://b2x8kh4xle580" path="res://assets/sprites/Sprite-0001.png" id="5_4kv1o"]
 [ext_resource type="Texture2D" uid="uid://dhvu5a4bqxj7k" path="res://assets/sprites/Sprite-0002.png" id="6_xu5s8"]
 [ext_resource type="Texture2D" uid="uid://d0y88l8q5vl7h" path="res://assets/sprites/mob_healt_progress.png" id="7_pdfg5"]
+[ext_resource type="Texture2D" uid="uid://b4dybhteijvw2" path="res://assets/sprites/mob_healt_empty.png" id="7_t0oog"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jalfv"]
 atlas = ExtResource("1_fc1cn")
@@ -163,6 +164,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_pdfg5")
+pistol_scene = ExtResource("2_ofbtv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
@@ -180,15 +182,14 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="GunAnchor" type="Node2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, 4)
 
 [node name="GunSprite2D" type="Sprite2D" parent="GunAnchor"]
 position = Vector2(2, 0)
 scale = Vector2(0.32576758, 0.30205548)
-texture = ExtResource("3_k2k3x")
 
 [node name="Muzzle" type="Marker2D" parent="GunAnchor"]
-position = Vector2(12, -4)
+position = Vector2(12, -1)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -262,16 +263,19 @@ offset_right = 97.99997
 offset_bottom = 156.0
 rotation = 1.5707964
 scale = Vector2(7.1156926, 5.1747427)
+texture_under = ExtResource("7_t0oog")
 texture_progress = ExtResource("7_pdfg5")
 tint_progress = Color(0.16470589, 0.41960785, 1, 1)
 
 [node name="AmmoLabel" type="Label" parent="UI"]
+visible = false
 offset_left = 106.0
 offset_top = 129.0
 offset_right = 146.0
 offset_bottom = 152.0
 
 [node name="WeaponNameLabel2" type="Label" parent="UI"]
+visible = false
 offset_left = 98.0
 offset_top = 151.0
 offset_right = 138.0

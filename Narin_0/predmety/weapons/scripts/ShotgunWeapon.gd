@@ -15,6 +15,13 @@ func _init() -> void:
 	auto_fire = false
 	max_ammo = 6
 	reload_time = 2.5
+	
+	# Визуал
+	weapon_color = Color(0.6, 0.4, 0.2)  # Коричневый
+	weapon_offset = Vector2(0, -3)
+
+func _get_default_size() -> Vector2:
+	return Vector2(25, 10)
 
 func _spawn_projectile(direction: Vector2) -> void:
 	"""Создаёт несколько снарядов веером"""

@@ -202,13 +202,13 @@ func _input(event):
 		return
 	
 	# 🔫 ПЕРЕКЛЮЧЕНИЕ ОРУЖИЯ
-	if event.is_action_pressed("weapon_1"):
+	if event.is_action_pressed("slot_1"):
 		weapon_manager.switch_weapon(0)
-	elif event.is_action_pressed("weapon_2"):
+	elif event.is_action_pressed("slot_2"):
 		weapon_manager.switch_weapon(1)
-	elif event.is_action_pressed("weapon_3"):
+	elif event.is_action_pressed("slot_3"):
 		weapon_manager.switch_weapon(2)
-	elif event.is_action_pressed("weapon_4"):
+	elif event.is_action_pressed("slot_4"):
 		weapon_manager.switch_weapon(3)
 	
 	# КОЛЕСИКО МЫШИ

@@ -18,6 +18,13 @@ func _init() -> void:
 	energy_cost = 15.0  # Энергия в секунду
 	auto_fire = true
 	max_ammo = -1  # Бесконечные патроны
+	
+	# Визуал
+	weapon_color = Color(0.2, 0.6, 1.0)  # Синий
+	weapon_offset = Vector2(0, 0)
+
+func _get_default_size() -> Vector2:
+	return Vector2(28, 4)
 
 func _ready() -> void:
 	super._ready()
