@@ -29,7 +29,8 @@ project/assembly_name="SRS_po_EVM"
 [file_customization]
 
 folder_colors={
-"res://main_menu/": "red"
+"res://main_menu/": "red",
+"res://scenes/levels/": "purple"
 }
 
 [global_group]

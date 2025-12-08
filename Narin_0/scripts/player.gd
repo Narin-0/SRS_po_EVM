@@ -103,6 +103,7 @@ func _input(event):
 
 func _physics_process(delta: float) -> void:
 	var input_vector = Vector2.ZERO
+	
 
 	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -131,6 +132,7 @@ func _physics_process(delta: float) -> void:
 
 		if input_vector.x != 0:
 			anim_sprite.flip_h = input_vector.x < 0
+			
 
 	move_and_slide()
 
@@ -138,6 +140,7 @@ func _physics_process(delta: float) -> void:
 	_handle_stamina(delta)
 
 	_check_auto_regen(delta)
+	
 
 
 func _handle_stamina(delta: float) -> void:
