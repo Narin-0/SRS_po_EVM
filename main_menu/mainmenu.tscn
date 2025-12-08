@@ -164,7 +164,7 @@ scale = Vector2(0.7791223, 0.8333334)
 sprite_frames = SubResource("SpriteFrames_aalns")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.046556957
+frame_progress = 0.3154364
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
