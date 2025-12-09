@@ -401,7 +401,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [],
 "loop": true,
@@ -417,7 +417,7 @@ default_base_scale = 1.59
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_30s0p"]
 frames = 4
-speed_scale = 4.5
+speed_scale = 3.0
 frame_0/texture = ExtResource("2_wvdv6")
 frame_1/texture = ExtResource("3_b46rj")
 frame_1/duration = 1.0
@@ -790,7 +790,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if774"]
@@ -970,7 +970,7 @@ position = Vector2(686, 264)
 scale = Vector2(7.810547, 7.441406)
 sprite_frames = SubResource("SpriteFrames_l0fm5")
 autoplay = "default"
-frame_progress = 0.2438849
+frame_progress = 0.09564675
 
 [node name="Panel2" type="Panel" parent="TextureRect"]
 layout_mode = 0
@@ -1002,7 +1002,7 @@ position = Vector2(992.99994, 189)
 scale = Vector2(9.3125, 11.59375)
 sprite_frames = SubResource("SpriteFrames_pihyj")
 autoplay = "default"
-frame_progress = 0.07062475
+frame_progress = 0.24040125
 
 [node name="Button4" type="Button" parent="."]
 layout_mode = 0

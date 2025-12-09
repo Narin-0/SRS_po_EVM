@@ -1,7 +1,7 @@
 [gd_scene load_steps=243 format=3 uid="uid://3tpb4qgvk1m7"]
 
 [ext_resource type="Script" uid="uid://c168l3t6j38wd" path="res://Characterchoose/choosemenu_2.gd" id="1_upipb"]
-[ext_resource type="Texture2D" uid="uid://b0e2ixgol1etw" path="res://Characterchoose/PNG/abbb6475e79d1731a475f36eda2da891.jpg" id="2_h3puq"]
+[ext_resource type="Texture2D" uid="uid://60q6hqipyu3w" path="res://Characterchoose/PNG/496780d250e470239aff6042db84c9c3.jpg" id="2_h3puq"]
 [ext_resource type="Texture2D" uid="uid://daa1dmhy4wjd" path="res://assets/Enemy_Animations_Set/enemies-vampire_idle.png" id="3_a0jb4"]
 [ext_resource type="Texture2D" uid="uid://drsseghk8uj6m" path="res://assets/Enemy_Animations_Set/enemies-vampire_movement.png" id="4_4ey0d"]
 [ext_resource type="Texture2D" uid="uid://cdkkh3h5pmyeo" path="res://assets/Enemy_Animations_Set/enemies-vampire_attack.png" id="5_cqfg6"]
@@ -1772,6 +1772,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2uvxc")
 text = "KILLER"
 horizontal_alignment = 1
 
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Soundbutton" to="Soundbutton" method="_on_pressed"]
 [connection signal="toggled" from="Soundbutton" to="Soundbutton" method="_on_soundbutton_toggled"]

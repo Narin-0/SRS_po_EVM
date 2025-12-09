@@ -11,10 +11,9 @@ config_version=5
 [application]
 
 config/name="SRS_po_EVM"
-<<<<<<< Updated upstream
-run/main_scene="uid://cybh1sy0vfrnt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+<<<<<<<Updatedupstreamrun/main_scene="uid://cybh1sy0vfrnt"
 
 [autoload]
 
