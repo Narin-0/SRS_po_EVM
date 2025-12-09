@@ -256,6 +256,7 @@ func _handle_local_player(delta: float) -> void:
 		idle_time = 0.0
 		current_animation = "run" if _is_sprinting else "walking"
 
+
 	if anim_sprite.animation != current_animation:
 		anim_sprite.play(current_animation)
 
@@ -268,8 +269,10 @@ func _handle_local_player(delta: float) -> void:
 	_handle_stamina(delta)
 	_check_auto_regen(delta)
 	
+
 	if hp_bar:
 		hp_bar.value = int(health)
+
 	if stamina_bar:
 		stamina_bar.value = int(stamina)
 

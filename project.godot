@@ -35,7 +35,8 @@ project/assembly_name="SRS_po_EVM"
 folder_colors={
 "res://Builds/": "blue",
 "res://Narin_0/": "green",
-"res://main_menu/": "red"
+"res://main_menu/": "red",
+"res://scenes/levels/": "purple"
 }
 
 [global_group]
