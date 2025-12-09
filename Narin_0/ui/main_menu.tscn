@@ -22,6 +22,10 @@ offset_bottom = 398.0
 layout_mode = 2
 text = "Выберите режим"
 
+[node name="NickInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "NickInput"
+
 [node name="HostButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Создать игру"
