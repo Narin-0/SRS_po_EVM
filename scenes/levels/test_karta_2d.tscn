@@ -1,4 +1,5 @@
-[gd_scene load_steps=893 format=3 uid="uid://bylabgssj253p"]
+[gd_scene load_steps=578 format=3 uid="uid://bylabgssj253p"]
+
 
 [ext_resource type="PackedScene" uid="uid://dguty6oj6hkc1" path="res://scenes/Element_scens/Shipy.tscn" id="1_ctjcb"]
 [ext_resource type="Texture2D" uid="uid://bcu6kji6yt8in" path="res://assets/tilesets/plains.png" id="1_husb0"]
@@ -6,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ru024a71hk4" path="res://assets/tilesets/atlas_walls_high-16x32.png" id="3_ctjcb"]
 [ext_resource type="Texture2D" uid="uid://5hljdur8a8m1" path="res://assets/tilesets/atlas_walls_low-16x16.png" id="4_m4ocp"]
 [ext_resource type="PackedScene" uid="uid://quqdb60ooefi" path="res://scenes/Element_scens/Button_red.tscn" id="6_m4ocp"]
-
-[sub_resource type="GDScript" id="GDScript_ctjcb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02y88"]
 texture = ExtResource("3_ctjcb")
@@ -2973,7 +2972,9 @@ size = Vector2(10, 169)
 size = Vector2(10, 20)
 
 [node name="Map2D" type="Node2D"]
-script = SubResource("GDScript_ctjcb")
+
+script = ExtResource("1_m4ocp")
+
 metadata/_edit_vertical_guides_ = [4901.0, -4901.0]
 metadata/_edit_horizontal_guides_ = [-2616.0]
 
@@ -5265,6 +5266,7 @@ shape = SubResource("RectangleShape2D_f3ful")
 position = Vector2(-1030, 1250.5)
 shape = SubResource("RectangleShape2D_wpyfe")
 
+
 [node name="CollisionShape2D566" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(-806, 1293.5)
 shape = SubResource("RectangleShape2D_4sfoy")
@@ -6527,6 +6529,7 @@ shape = SubResource("RectangleShape2D_5oivv")
 
 [node name="CollisionShape2D881" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(445, -1820)
+
 
 [node name="SpawnPositions" type="Node2D" parent="."]
 
