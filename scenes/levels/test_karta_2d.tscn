@@ -1,6 +1,5 @@
 [gd_scene load_steps=578 format=3 uid="uid://bylabgssj253p"]
 
-
 [ext_resource type="PackedScene" uid="uid://dguty6oj6hkc1" path="res://scenes/Element_scens/Shipy.tscn" id="1_ctjcb"]
 [ext_resource type="Texture2D" uid="uid://bcu6kji6yt8in" path="res://assets/tilesets/plains.png" id="1_husb0"]
 [ext_resource type="Script" uid="uid://bd7pyqs3rnwmj" path="res://scenes/levels/test_karta_2d.gd" id="1_m4ocp"]
@@ -8,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ru024a71hk4" path="res://assets/tilesets/atlas_walls_high-16x32.png" id="3_ctjcb"]
 [ext_resource type="Texture2D" uid="uid://5hljdur8a8m1" path="res://assets/tilesets/atlas_walls_low-16x16.png" id="4_m4ocp"]
 [ext_resource type="PackedScene" uid="uid://quqdb60ooefi" path="res://scenes/Element_scens/Button_red.tscn" id="6_m4ocp"]
-
-[sub_resource type="GDScript" id="GDScript_ctjcb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02y88"]
 texture = ExtResource("3_ctjcb")
@@ -2030,8 +2027,7 @@ size = Vector2(10, 109)
 size = Vector2(10, 127)
 
 [node name="Map2D" type="Node2D"]
-script = SubResource("GDScript_ctjcb")
-
+script = ExtResource("1_m4ocp")
 metadata/_edit_vertical_guides_ = [4901.0, -4901.0]
 metadata/_edit_horizontal_guides_ = [-2616.0]
 
@@ -2142,69 +2138,6 @@ shape = SubResource("RectangleShape2D_ft23d")
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(122, -883.25)
 shape = SubResource("RectangleShape2D_wc5ax")
-
-
-[node name="SpawnPositions" type="Node2D" parent="."]
-
-[node name="SpawnPoint1" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(28, 25)
-
-[node name="SpawnPoint2" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(28, -43)
-
-[node name="SpawnPoint3" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-1518, 2494)
-
-[node name="SpawnPoint4" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-2975, 2514)
-
-[node name="SpawnPoint5" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-4815, 2162)
-
-[node name="SpawnPoint6" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-4238, 611)
-
-[node name="SpawnPoint7" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-4702, -253)
-
-[node name="SpawnPoint8" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-3919, -1533)
-
-[node name="SpawnPoint9" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-4399, -2173)
-
-[node name="SpawnPoint10" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-2686, -1741)
-
-[node name="SpawnPoint11" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(-1310, -2221)
-
-[node name="SpawnPoint12" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(418, -2477)
-
-[node name="SpawnPoint13" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(3250, -1981)
-
-[node name="SpawnPoint14" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(4515, -1949)
-
-[node name="SpawnPoint15" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(4530, -973)
-
-[node name="SpawnPoint16" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(4530, -13)
-
-[node name="SpawnPoint17" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(4594, 1059)
-
-[node name="SpawnPoint18" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(4402, 1986)
-
-[node name="SpawnPoint19" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(3473, 2323)
-
-[node name="SpawnPoint20" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(1938, 2227)
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(298, -1010)
@@ -4386,6 +4319,67 @@ shape = SubResource("RectangleShape2D_f3ful")
 position = Vector2(-1030, 1250.5)
 shape = SubResource("RectangleShape2D_wpyfe")
 
+[node name="SpawnPositions" type="Node2D" parent="."]
+
+[node name="SpawnPoint1" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(28, 25)
+
+[node name="SpawnPoint2" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(28, -43)
+
+[node name="SpawnPoint3" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-1518, 2494)
+
+[node name="SpawnPoint4" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-2975, 2514)
+
+[node name="SpawnPoint5" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4815, 2162)
+
+[node name="SpawnPoint6" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4238, 611)
+
+[node name="SpawnPoint7" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4702, -253)
+
+[node name="SpawnPoint8" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-3919, -1533)
+
+[node name="SpawnPoint9" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-4399, -2173)
+
+[node name="SpawnPoint10" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-2686, -1741)
+
+[node name="SpawnPoint11" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(-1310, -2221)
+
+[node name="SpawnPoint12" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(418, -2477)
+
+[node name="SpawnPoint13" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(3250, -1981)
+
+[node name="SpawnPoint14" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4515, -1949)
+
+[node name="SpawnPoint15" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4530, -973)
+
+[node name="SpawnPoint16" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4530, -13)
+
+[node name="SpawnPoint17" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4594, 1059)
+
+[node name="SpawnPoint18" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(4402, 1986)
+
+[node name="SpawnPoint19" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(3473, 2323)
+
+[node name="SpawnPoint20" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1938, 2227)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.8047426, 0.80474263, 0.8047426, 1)
-
