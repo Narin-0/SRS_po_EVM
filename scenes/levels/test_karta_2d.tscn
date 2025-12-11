@@ -2027,7 +2027,9 @@ size = Vector2(10, 109)
 size = Vector2(10, 127)
 
 [node name="Map2D" type="Node2D"]
+
 script = ExtResource("1_m4ocp")
+
 metadata/_edit_vertical_guides_ = [4901.0, -4901.0]
 metadata/_edit_horizontal_guides_ = [-2616.0]
 
