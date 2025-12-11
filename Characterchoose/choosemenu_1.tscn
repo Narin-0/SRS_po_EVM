@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://b18lrtdaef68c" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="8_f7x38"]
 [ext_resource type="FontFile" uid="uid://b6a2plxr5bm8k" path="res://fonts/fonts1/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="10_finb1"]
 [ext_resource type="Texture2D" uid="uid://cg5p0x0pd7k06" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_attack.png" id="11_86t4o"]
-[ext_resource type="AudioStream" uid="uid://bni7atknuflop" path="res://Characterchoose/PNG/c245b81d72ab0bb.mp3" id="11_finb1"]
 [ext_resource type="Texture2D" uid="uid://cv0b1yxnv5ulp" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_death.png" id="12_jk6nj"]
 [ext_resource type="Script" uid="uid://d4ggyfp7rppyk" path="res://main_menu/soundbutton.gd" id="12_y05qt"]
 [ext_resource type="Texture2D" uid="uid://dpp7iov5wtk33" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_movement.png" id="14_d2y0e"]
 [ext_resource type="Texture2D" uid="uid://cfaqhsuxsncec" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_take_damage.png" id="15_iyi3s"]
+[ext_resource type="AudioStream" uid="uid://c1poy2sfdnvp5" path="res://Characterchoose/acd5d1d82923f28.mp3" id="19_n2p60"]
 [ext_resource type="FontFile" uid="uid://bk7jott3oqcf4" path="res://fonts/fonts1/kirifont/KiriFont.otf" id="21_5xmj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86t4o"]
@@ -1052,8 +1052,8 @@ visible_ratio = 1.05
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(35, 532)
-stream = ExtResource("11_finb1")
-volume_db = -5.943
+stream = ExtResource("19_n2p60")
+volume_db = 8.914
 autoplay = true
 max_polyphony = 2
 area_mask = 255
