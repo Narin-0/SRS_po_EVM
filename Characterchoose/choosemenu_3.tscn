@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bxecweb4dl4mf" path="res://assets/Enemy_Animations_Set/angel_universal.png" id="12_fjn5p"]
 [ext_resource type="FontFile" uid="uid://dl65ja08a4obg" path="res://fonts/fonts1/architect-s-daughter/ArchitectsDaughter.ttf" id="13_xygag"]
 [ext_resource type="FontFile" uid="uid://b6a2plxr5bm8k" path="res://fonts/fonts1/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="14_aa0mw"]
-[ext_resource type="AudioStream" uid="uid://uqf65pyygs3c" path="res://Characterchoose/dvrst-my-toy_RAACmMOh.mp3" id="15_wg441"]
+[ext_resource type="AudioStream" uid="uid://cb1d0ebrsrfqt" path="res://Characterchoose/fortressbelldrone.mp3" id="15_go5t2"]
 [ext_resource type="Script" uid="uid://d4ggyfp7rppyk" path="res://main_menu/soundbutton.gd" id="16_vqjq1"]
 [ext_resource type="FontFile" uid="uid://bk7jott3oqcf4" path="res://fonts/fonts1/kirifont/KiriFont.otf" id="17_rwror"]
 
@@ -2175,7 +2175,7 @@ visible_ratio = 1.05
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(35, 532)
-stream = ExtResource("15_wg441")
+stream = ExtResource("15_go5t2")
 volume_db = -5.943
 autoplay = true
 max_polyphony = 2

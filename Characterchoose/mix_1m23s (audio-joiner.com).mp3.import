@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caqk04pb36af"
+path="res://.godot/imported/mix_1m23s (audio-joiner.com).mp3-a663e1fd8b62119c2cd917c61af8361f.mp3str"
+
+[deps]
+
+source_file="res://Characterchoose/mix_1m23s (audio-joiner.com).mp3"
+dest_files=["res://.godot/imported/mix_1m23s (audio-joiner.com).mp3-a663e1fd8b62119c2cd917c61af8361f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -46,6 +46,16 @@ spawn_point=""
 player=""
 pickable=""
 
+[importer_defaults]
+
+mp3={
+"bar_beats": 4,
+"beat_count": 0,
+"bpm": 0,
+"loop": false,
+"loop_offset": 0
+}
+
 [input]
 
 ui_left={

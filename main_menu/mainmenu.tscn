@@ -1,16 +1,41 @@
-[gd_scene load_steps=28 format=3 uid="uid://cybh1sy0vfrnt"]
+[gd_scene load_steps=37 format=3 uid="uid://cybh1sy0vfrnt"]
 
 [ext_resource type="Script" uid="uid://bpk78xsh18isc" path="res://main_menu/mainmenu.gd" id="1_itpeu"]
-[ext_resource type="AudioStream" uid="uid://qwxn5sefvk7x" path="res://main_menu/OMNIMAN _ TOM TOM SLOWED EDIT (mp3cut.net).mp3" id="2_fs5a5"]
 [ext_resource type="Texture2D" uid="uid://c3l0m2fm7glrd" path="res://Characterchoose/PNG/Рисунок1.png" id="2_kg1e4"]
 [ext_resource type="Texture2D" uid="uid://b2lyibvn1x3uq" path="res://Characterchoose/PNG/Рисунок9.png" id="2_s5b7i"]
+[ext_resource type="Texture2D" uid="uid://wcpnv8f2bgxj" path="res://Characterchoose/PNG/Run (1).png" id="2_uh4fn"]
 [ext_resource type="FontFile" uid="uid://dl65ja08a4obg" path="res://fonts/fonts1/architect-s-daughter/ArchitectsDaughter.ttf" id="3_fs5a5"]
 [ext_resource type="Texture2D" uid="uid://b66qiayig1awk" path="res://Characterchoose/PNG/e680cd803e33a0ab3af894d076d7961b.jpg" id="3_itpeu"]
 [ext_resource type="Texture2D" uid="uid://t8xb6df7iqq6" path="res://Characterchoose/PNG/Рисунок2.png" id="3_s5b7i"]
+[ext_resource type="Texture2D" uid="uid://4jn6jvoxieup" path="res://Characterchoose/PNG/Run (2).png" id="3_s13ri"]
 [ext_resource type="Texture2D" uid="uid://bdp1hhg5ml74i" path="res://Characterchoose/PNG/Рисунок3.png" id="4_bs8yq"]
+[ext_resource type="Texture2D" uid="uid://dxf38ibllpfte" path="res://Characterchoose/PNG/Run (3).png" id="4_klnu0"]
 [ext_resource type="Texture2D" uid="uid://bd2m5jobiux7j" path="res://Characterchoose/PNG/Рисунок4.png" id="5_58vjp"]
+[ext_resource type="Texture2D" uid="uid://dedxnw70x3rq2" path="res://Characterchoose/PNG/Run (5).png" id="5_dkqb0"]
 [ext_resource type="Script" uid="uid://d4ggyfp7rppyk" path="res://main_menu/soundbutton.gd" id="5_itpeu"]
+[ext_resource type="Texture2D" uid="uid://1ams6ksmhy4" path="res://Characterchoose/PNG/Run (6).png" id="6_i3h5v"]
 [ext_resource type="Texture2D" uid="uid://dhq3eeilwehcx" path="res://Characterchoose/PNG/Рисунок5.png" id="6_uh4fn"]
+[ext_resource type="Texture2D" uid="uid://csrbr4xbqnjfj" path="res://Characterchoose/PNG/Run (7).png" id="7_im5la"]
+[ext_resource type="AudioStream" uid="uid://dpi61jpjvx3yw" path="res://Characterchoose/mix_1m31s (audio-joiner.com).mp3" id="8_s5b7i"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_sk446"]
+frames = 7
+frame_0/texture = ExtResource("2_uh4fn")
+frame_1/texture = ExtResource("3_s13ri")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_s13ri")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_klnu0")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_dkqb0")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_i3h5v")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_im5la")
+frame_6/duration = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ptp6"]
+texture = SubResource("AnimatedTexture_sk446")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bs8yq"]
 atlas = ExtResource("2_s5b7i")
@@ -49,9 +74,9 @@ animations = [{
 }]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_pi1rk"]
-frames = 6
+frames = 24
 one_shot = true
-speed_scale = 3.0
+speed_scale = 4.3
 frame_0/texture = ExtResource("2_kg1e4")
 frame_1/texture = ExtResource("3_s5b7i")
 frame_1/duration = 1.0
@@ -61,7 +86,44 @@ frame_3/texture = ExtResource("5_58vjp")
 frame_3/duration = 1.0
 frame_4/texture = ExtResource("6_uh4fn")
 frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_uh4fn")
 frame_5/duration = 1.0
+frame_6/texture = ExtResource("6_uh4fn")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("6_uh4fn")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("6_uh4fn")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("6_uh4fn")
+frame_9/duration = 2.06
+frame_10/texture = ExtResource("6_uh4fn")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("6_uh4fn")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("6_uh4fn")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("5_58vjp")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("5_58vjp")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("4_bs8yq")
+frame_15/duration = 1.0
+frame_16/texture = ExtResource("4_bs8yq")
+frame_16/duration = 1.0
+frame_17/texture = ExtResource("4_bs8yq")
+frame_17/duration = 1.0
+frame_18/texture = ExtResource("3_s5b7i")
+frame_18/duration = 1.0
+frame_19/texture = ExtResource("3_s5b7i")
+frame_19/duration = 1.0
+frame_20/texture = ExtResource("2_kg1e4")
+frame_20/duration = 1.0
+frame_21/texture = ExtResource("2_kg1e4")
+frame_21/duration = 1.0
+frame_22/texture = ExtResource("2_kg1e4")
+frame_22/duration = 1.0
+frame_23/texture = ExtResource("2_kg1e4")
+frame_23/duration = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aalns"]
 texture = SubResource("AnimatedTexture_pi1rk")
@@ -149,6 +211,9 @@ corner_radius_top_left = 80
 corner_radius_top_right = 80
 corner_radius_bottom_right = 80
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1i0o"]
+load_path = "res://.godot/imported/Безымянный-2.svg-cbf722f1311693f917061e99f0709d9a.ctex"
+
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -157,6 +222,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_itpeu")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 889.0
+offset_top = 424.0
+offset_right = 1146.0
+offset_bottom = 660.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4ptp6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(99, 529)
@@ -168,15 +241,15 @@ frame_progress = 0.3154364
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -459.0
-offset_top = -19.0
-offset_right = 800.0
-offset_bottom = 639.0
+offset_left = -395.0
+offset_top = 47.0
+offset_right = 708.0
+offset_bottom = 646.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_aalns")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_fs5a5")
-volume_db = -8.914
+stream = ExtResource("8_s5b7i")
+volume_db = -5.943
 autoplay = true
 max_polyphony = 2
 area_mask = 255
@@ -188,10 +261,10 @@ parameters/looping = true
 motion_mirroring = Vector2(3000, 1920)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-offset_left = -21.0
-offset_top = -24.0
-offset_right = 1338.0
-offset_bottom = 673.0
+offset_left = -38.0
+offset_top = -16.0
+offset_right = 1321.0
+offset_bottom = 681.0
 texture = ExtResource("3_itpeu")
 expand_mode = 1
 stretch_mode = 6
@@ -261,7 +334,7 @@ text = "Exit
 "
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(991, 232)
+position = Vector2(997, 232)
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_qfadr")
 
@@ -277,7 +350,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_48cn3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kg1e4")
 script = ExtResource("5_itpeu")
 
+[node name="Безымянный2" type="Sprite2D" parent="."]
+position = Vector2(925, -216)
+texture = SubResource("CompressedTexture2D_h1i0o")
+
 [connection signal="pressed" from="VBoxContainer/Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="Soundbutton" to="Soundbutton" method="_on_pressed"]
 [connection signal="toggled" from="Soundbutton" to="Soundbutton" method="_on_soundbutton_toggled"]
