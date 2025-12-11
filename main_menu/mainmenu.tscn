@@ -212,7 +212,6 @@ corner_radius_top_right = 80
 corner_radius_bottom_right = 80
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1i0o"]
-load_path = "res://.godot/imported/Безымянный-2.svg-cbf722f1311693f917061e99f0709d9a.ctex"
 
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
