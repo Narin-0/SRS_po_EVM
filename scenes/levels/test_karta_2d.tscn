@@ -5266,7 +5266,6 @@ shape = SubResource("RectangleShape2D_f3ful")
 position = Vector2(-1030, 1250.5)
 shape = SubResource("RectangleShape2D_wpyfe")
 
-
 [node name="CollisionShape2D566" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(-806, 1293.5)
 shape = SubResource("RectangleShape2D_4sfoy")
@@ -6529,7 +6528,6 @@ shape = SubResource("RectangleShape2D_5oivv")
 
 [node name="CollisionShape2D881" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(445, -1820)
-
 
 [node name="SpawnPositions" type="Node2D" parent="."]
 
